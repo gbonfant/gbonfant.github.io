@@ -52,7 +52,7 @@ FOOTER
 ***********************************/
 
 footer {
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   font-size: 0.75em;
   position: absolute;
