@@ -3,7 +3,7 @@ GENERAL
 ***********************************/
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, serif;
 }
 
 
@@ -15,72 +15,35 @@ header h1 {
   margin: 20px 0 0;
   font-size: 2.5em;
   text-align: center;
-  font-weight: normal;
+  font-weight: bold;
   font-family: Menlo, sans-serif;
 }
-
-header h2 {
-  margin: 0 0 10px;
-  text-align: center;
-  font-size: 0.75em;
-  font-weight: lighter;
-  font-family: Menlo, sans-serif;
-}
-
-nav {
-  margin: 20px 0 0;
-  text-align: center;
-}
-
-nav ul {
-  padding: 0;
-  margin: 0 10px;
-  list-style: none;
-}
-
-nav li {
-  display: inline-block;
-}
-
-nav a {
-  padding: 15px 10px;
-}
-
 
 /**********************************
-FOOTER
+Body
 ***********************************/
 
-footer {
-  bottom: 10px;
-  width: 100%;
-  font-size: 0.75em;
-  position: absolute;
+.profile-photo {
+  display: block;
+  margin: 30px auto;
 }
 
-footer ul {
-  padding: 0;
-  margin: 10px 0;
-  list-style: none;
-  text-align: center;
+.intro {
+  padding: 0 20px;
+  font-size: 1.20em;
 }
 
-footer li {
-  display: inline-block;
-}
-
-footer a {
-  padding: 15px 10px;
+.intro p {
+  line-height: 27px;
 }
 
 /**********************************
 COLORS
 ***********************************/
-
-nav a, nav a:visited {
-  color: #111;
+body {
+  color: #444;
 }
 
-footer, footer a, footer a:visited {
-  color: #5a7a7f;
+a, a:visited {
+  color: #fc3300;
 }
