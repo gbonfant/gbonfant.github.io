@@ -55,6 +55,10 @@ a, a:visited {
 }
 
 @media screen and (min-width: 950px) {
+  #main {
+    margin: 30px auto 0;
+  }
+
   .profile-photo {
     float: left;
   }
