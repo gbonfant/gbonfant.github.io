@@ -3,6 +3,7 @@ layout: post
 title: "Set-up log level for specific exceptions"
 date: 2013-08-19 21:08:49 +0200
 comments: true
+description: "How to setup log level for a specific exception in Rails"
 categories:
 ---
 

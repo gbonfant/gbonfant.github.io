@@ -3,6 +3,7 @@ layout: post
 title: "Deleting nested hashes in Ruby"
 date: 2013-06-26 20:16:31 +0200
 comments: true
+description: "How to delete nested hashes in Ruby"
 categories:
 ---
 
