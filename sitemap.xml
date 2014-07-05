@@ -3,29 +3,35 @@
   
   
   <url>
-    <loc>http://gbonfant.github.io/blog/assining-date-attributes-without-activerecord/</loc>
-    <lastmod>2014-07-05T16:13:26+02:00</lastmod>
+    <loc>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/</loc>
+    <lastmod>2013-06-26T20:16:31+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record/</loc>
+    <lastmod>2013-05-14T16:13:26+02:00</lastmod>
     <priority>0.8</priority>
   </url>
   
   
   <url>
-    <loc>http://gbonfant.github.io/blog/archives/</loc>
-    <lastmod>2014-07-05T18:45:14+02:00</lastmod>
+    <loc>http://www.gbonfant.com/blog/archives/</loc>
+    <lastmod>2014-07-05T20:54:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://gbonfant.github.io/blog/</loc>
-    <lastmod>2014-07-05T18:45:14+02:00</lastmod>
+    <loc>http://www.gbonfant.com/blog/</loc>
+    <lastmod>2014-07-05T20:54:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://gbonfant.github.io/</loc>
-    <lastmod>2014-07-05T18:45:14+02:00</lastmod>
+    <loc>http://www.gbonfant.com/</loc>
+    <lastmod>2014-07-05T20:54:13+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Gus Bonfant]]></title>
-  <link href="http://gbonfant.github.io/atom.xml" rel="self"/>
-  <link href="http://gbonfant.github.io/"/>
-  <updated>2014-07-05T18:45:14+02:00</updated>
-  <id>http://gbonfant.github.io/</id>
+  <link href="http://www.gbonfant.com/atom.xml" rel="self"/>
+  <link href="http://www.gbonfant.com/"/>
+  <updated>2014-07-05T20:54:13+02:00</updated>
+  <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
     
@@ -14,10 +14,75 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Assining Date Attributes Without ActiveRecord]]></title>
-    <link href="http://gbonfant.github.io/blog/assining-date-attributes-without-activerecord/"/>
-    <updated>2014-07-05T16:13:26+02:00</updated>
-    <id>http://gbonfant.github.io/blog/assining-date-attributes-without-activerecord</id>
+    <title type="html"><![CDATA[Deleting Nested Hashes in Ruby]]></title>
+    <link href="http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/"/>
+    <updated>2013-06-26T20:16:31+02:00</updated>
+    <id>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby</id>
+    <content type="html"><![CDATA[<p>I wanted to expose a method for performing a relatively common problem I was facing: removing nested items in a data structure. I tried to aproach the problem by naively duplicating the object and deleting any nested hash.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Hash</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">except_nested_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">dup</span><span class="o">.</span><span class="n">except_nested_key!</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">except_nested_key!</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">each</span> <span class="p">{</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="n">v</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">is_a?</span> <span class="no">Hash</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">self</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This implementation exposes a few flaws. To begin with, both <code>dup</code> and <code>clone</code> make shallow copies of the given object, which means our nested hashes are just references to the original object, because of this, unless the nested hashes in the original object were frozen both methods will mutate the original object state! <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>Fortunately we can achieve a deep copy of our original object and preserve its integrity using <a href="http://ruby-doc.org/core-1.9.3/Marshal.html">Marshal</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Hash</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">except_nested_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">copy</span> <span class="o">=</span> <span class="no">Marshal</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="no">Marshal</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">self</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">copy</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">|</span> <span class="n">v</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">is_a?</span> <span class="no">Hash</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><em>Object-oriented programming makes code understandable by encapsulating moving parts. Functional programming makes code understandable by minimizing moving parts.</em> — Michael Feathers<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Assigning Date Attributes Without ActiveRecord]]></title>
+    <link href="http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record/"/>
+    <updated>2013-05-14T16:13:26+02:00</updated>
+    <id>http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record</id>
     <content type="html"><![CDATA[<p>When straying away from &ldquo;the rails path&rdquo; we may find ourselves missing some nifty functionality the Rails modules provide us.</p>
 
 <p>The most ubiquitous of those, ActiveRecord, is without a doubt a behemont of nifty functionalities, in this case seemingly instantiating and assigning date object to our models date attributes is a feature we give for granted.</p>
