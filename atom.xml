@@ -4,7 +4,7 @@
   <title><![CDATA[Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-05T21:52:34+02:00</updated>
+  <updated>2014-07-05T22:03:21+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Execute a Function on Ng-repeat Done]]></title>
+    <link href="http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done/"/>
+    <updated>2013-08-25T21:58:05+02:00</updated>
+    <id>http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done</id>
+    <content type="html"><![CDATA[<p>ngRepeat is one of Angular&rsquo;s most powerful directives, however in certain cases you might find yourself wanting to update the DOM or execute a function as soon as the directive has finished its job.</p>
+
+<p>Along with <a href="http://docs.angularjs.org/api/ng.$rootScope.Scope#$destroy">$destroy()</a> we can create a custom directive to accomplish such effect.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="p">[]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;repeatDone&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">element</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;$destroy&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">$last</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">scope</span><span class="p">.</span><span class="nx">$eval</span><span class="p">(</span><span class="nx">attrs</span><span class="p">.</span><span class="nx">repeatDone</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We can then simply use it along ngRepeat in the following fashion:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in model.items&quot;</span> <span class="na">repeat-done=</span><span class="s">&quot;foo()&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Set-up Log Level for Specific Exceptions]]></title>
