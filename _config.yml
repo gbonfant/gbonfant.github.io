@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://gbonfant.github.io
+url: http://www.gbonfant.com
 title: Gus Bonfant
 subtitle:
 author: Gus Bonfant
-description:
+description: "Gus Bonfant. Software engineer with a thing for design. Obsessively curious."
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -94,7 +94,7 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-52415972-1
 
 # Facebook Like
 facebook_like: false
