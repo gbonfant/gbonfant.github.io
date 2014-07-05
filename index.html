@@ -10,7 +10,7 @@
 
   <!-- Causes trouble with per-article font implementations under /source/_includes/article.html
   
-  <meta name="description" content="Deleting Nested Hashes in Ruby Jun 26th, 2013 I wanted to expose a method for performing a relatively common problem I was facing: removing nested &hellip;">
+  <meta name="description" content="Set-up Log Level for Specific Exceptions Aug 19th, 2013 It seems to me that in the Rails world logging is an afterthought, something that can be &hellip;">
   -->
   
 
@@ -82,6 +82,117 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-family: "><a href="/blog/set-up-log-level-specific-exceptions/">Set-up Log Level for Specific Exceptions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-19T21:08:49+02:00" pubdate data-updated="true">Aug 19<sup>th</sup>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content" style="font-family: ; font-size: "><p>It seems to me that in the Rails world logging is an afterthought, something that can be easily taken care of via 3rd party services, not surprising considering how inexpensive, robust and easy to setup they are.</p>
+
+<p>However, if you are manually keeping track of your logs with something like <a href="http://graylog2.org">graylog</a> finding any useful, straightforward information about logging in Rails can be daunting. So without any straightforward answer as to how to set a warn level for all those pesky 404 errors that were polluting our logs I decided to peek into Rails&#8217; internals. <a href="http://api.rubyonrails.org/classes/ActionDispatch/DebugExceptions.html">ActionDispatch::DebugExceptions</a> is a simple piece of middleware in charge of logging exceptions, upon further inspection I stumbled upon <code>log_error</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">log_error</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="k">unless</span> <span class="n">logger</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">exception</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">exception</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">trace</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">application_trace</span>
+</span><span class='line'>  <span class="n">trace</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">framework_trace</span> <span class="k">if</span> <span class="n">trace</span><span class="o">.</span><span class="n">empty?</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Deprecation</span><span class="o">.</span><span class="n">silence</span> <span class="k">do</span>
+</span><span class='line'>    <span class="c1"># string manipulation code ...</span>
+</span><span class='line'>    <span class="n">logger</span><span class="o">.</span><span class="n">fatal</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">message</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It looks like <code>log_error</code> is logging every exception as fatal, this is exactly the behaviour I want to modify.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ActionDispatch</span><span class="o">::</span><span class="no">DebugExceptions</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">log_error</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">if</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">is_a?</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">RoutingError</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">super</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I could as well override the method and add my own logic to it, for instance if I wanted to add a conditional, like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">log_error</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1"># ...</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">exception</span><span class="o">.</span><span class="n">is_a?</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">RoutingError</span>
+</span><span class='line'>    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">message</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">logger</span><span class="o">.</span><span class="n">fatal</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">message</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Middleware code is a joy to read and a great reminder that our code should be simple, lean and understandable.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

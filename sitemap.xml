@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://www.gbonfant.com/blog/set-up-log-level-specific-exceptions/</loc>
+    <lastmod>2013-08-19T21:08:49+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/</loc>
     <lastmod>2013-06-26T20:16:31+02:00</lastmod>
     <priority>0.8</priority>
@@ -17,21 +23,21 @@
   
   <url>
     <loc>http://www.gbonfant.com/blog/archives/</loc>
-    <lastmod>2014-07-05T20:54:13+02:00</lastmod>
+    <lastmod>2014-07-05T21:52:34+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.gbonfant.com/blog/</loc>
-    <lastmod>2014-07-05T20:54:13+02:00</lastmod>
+    <lastmod>2014-07-05T21:52:34+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.gbonfant.com/</loc>
-    <lastmod>2014-07-05T20:54:13+02:00</lastmod>
+    <lastmod>2014-07-05T21:52:34+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
