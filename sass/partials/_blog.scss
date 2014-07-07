@@ -20,7 +20,7 @@ article {
       margin: 0;
       &.meta {
         text-transform: none;
-        position: relative; 
+        position: relative;
         top: 1em;
         left: 0;
         right:0;
@@ -144,7 +144,3 @@ article + article {
   }
 }
 
-logo {
-float: right;
-padding: 8px;
-}
