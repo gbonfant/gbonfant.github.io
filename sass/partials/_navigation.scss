@@ -5,45 +5,8 @@ body > nav {
   padding-top: .35em;
   padding-bottom: .35em;
   text-align:center;
-/*
-  margin-left:35%;
-  margin-right:35%;
-*/
 
-  form {
-    @include background-clip(padding-box);
-    margin: 0; padding: 0;
-    color: #333;
-    .search {
-      text-align: center;
-      padding: .3em .5em 0;
-      font-size: .85em;
-      font-family: $serif;
-      line-height: 1.1em;
-      width: 95%;
-      @include border-radius(.5em);
-      @include background-clip(padding-box);
-      @include box-shadow(lighten($nav-bg, 2) 0 1px);
-      background-color: $nav-bg;
-      border: 1px solid $nav-border;
-      color: #aaa;
-      &:focus {
-        color: #aaa;
-/*
-        border-color: #80b1df;
-        @include box-shadow(#80b1df 0 0 4px, #80b1df 0 0 3px inset);
-*/
-        background-color: #fff;
-        outline: none;
-      }
-    }
-  }
-  fieldset[role=search]{ width: 48%;}
-  fieldset.mobile-nav{ width: 48%;
-    select{ width: 100%; font-size: .8em; border: 1px solid #888;}
-  }
   ul { display: none; }
-  @media only screen and (min-width: 550px) {
     font-size: .95em;
     ul {
       @include horizontal-list(0);
@@ -86,13 +49,8 @@ body > nav {
       width: 258px; // chr
       .search { width: 91%; }
     }
-    fieldset.mobile-nav { display: none; }
-    fieldset[role=search]{ width: 99%; }
-  }
+
   @media only screen and (min-width: 992px) {
-    form {
-      width: 250px; // chr
-    }
     ul[data-subscription$=email] + form {
       width: 258px; // chr
     }
