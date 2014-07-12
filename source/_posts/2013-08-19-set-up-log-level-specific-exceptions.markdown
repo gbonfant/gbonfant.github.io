@@ -4,7 +4,7 @@ title: "Set-up log level for specific exceptions"
 date: 2013-08-19 21:08:49 +0200
 comments: true
 description: "How to setup log level for a specific exception in Rails"
-categories:
+categories: rails
 ---
 
 It seems to me that in the Rails world logging is an afterthought, something that can be easily taken care of via 3rd party services, not surprising considering how inexpensive, robust and easy to setup they are.

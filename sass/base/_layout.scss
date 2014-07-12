@@ -7,12 +7,16 @@ $pad-wide: 25% !default;
 $indented-lists: false !default;
 
 $header-font-size: 1em !default;
-$header-padding-top: 5em !default;
+$header-padding-top: 5.5em !default;
 $header-padding-bottom: 0 !default;
 
 .group { @include pie-clearfix; }
 
 body {
+  -webkit-text-size-adjust: none;
+  border-top: 8px solid #333;
+  position: relative;
+  margin: 0 auto;
   > header, > nav, > footer, #content > article, #content > div > article, #content > div > section {
     @extend .group;
     padding-left: $pad-min;
@@ -56,7 +60,7 @@ body {
 
 #content {
   overflow: hidden;
-  > div, > article {
+  > div, > article { 
     text-align:justify;
     display: block;
     margin-left: auto;

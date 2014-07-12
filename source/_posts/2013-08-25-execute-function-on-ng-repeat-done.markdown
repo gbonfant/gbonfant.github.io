@@ -4,7 +4,7 @@ title: "Execute a function on ng-repeat done"
 date: 2013-08-25 21:58:05 +0200
 comments: true
 description: "How to execute a function on ng-repeat done Angular.js"
-categories:
+categories: angularjs javascript
 ---
 
 ngRepeat is one of Angular's most powerful directives and in most cases _it just works_, however there are times when I find myself wanting to update the DOM or execute a function as soon as the directive has finished its job.

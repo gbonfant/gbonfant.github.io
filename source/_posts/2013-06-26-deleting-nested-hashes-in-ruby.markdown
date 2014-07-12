@@ -4,7 +4,7 @@ title: "Deleting nested hashes in Ruby"
 date: 2013-06-26 20:16:31 +0200
 comments: true
 description: "How to delete nested hashes in Ruby"
-categories:
+categories: ruby
 ---
 
 I wanted to expose a method for performing a relatively common problem I was facing: removing nested items in a data structure. I tried to aproach the problem by naively duplicating the object and deleting any nested hash.

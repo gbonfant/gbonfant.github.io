@@ -4,7 +4,7 @@ title: "Responding to scope changes with controller as syntax"
 date: 2014-07-11 14:51:50 +0200
 comments: true
 description: "Responding to scope changes with controller as syntax in AngularJS"
-categories:
+categories: javascript angularjs
 ---
 
 Before AngularJS 1.2 we used to bind our data models to the ``$scope`` object in a controller. I find this confusing as the use  of ``scope`` across my angular code looked like some dark magic.
