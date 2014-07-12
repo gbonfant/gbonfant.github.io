@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | Gus Bonfant]]></title>
+  <link href="http://www.gbonfant.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://www.gbonfant.com/"/>
+  <updated>2014-07-12T21:11:15+02:00</updated>
+  <id>http://www.gbonfant.com/</id>
+  <author>
+    <name><![CDATA[Gus Bonfant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Deleting nested hashes in Ruby]]></title>
+    <link href="http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/"/>
+    <updated>2013-06-26T20:16:31+02:00</updated>
+    <id>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby</id>
+    <content type="html"><![CDATA[<p>I wanted to expose a method for performing a relatively common problem I was facing: removing nested items in a data structure. I tried to aproach the problem by naively duplicating the object and deleting any nested hash.</p>
+
+<p>```ruby
+class Hash
+  def except_nested_key(key)</p>
+
+<pre><code>dup.except_nested_key!(key)
+</code></pre>
+
+<p>  end</p>
+
+<p>  def except_nested_key!(key)</p>
+
+<pre><code>each { (k, v) v.delete(key) if v.is_a? Hash }
+
+self
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>This implementation exposes a few flaws. To begin with, both <code>dup</code> and <code>clone</code> make shallow copies of the given object, which means our nested hashes are just references to the original object, because of this, unless the nested hashes in the original object were frozen both methods will mutate the original object state! <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>Fortunately we can achieve a deep copy of our original object and preserve its integrity using <a href="http://ruby-doc.org/core-1.9.3/Marshal.html">Marshal</a>.</p>
+
+<p>```ruby
+class Hash
+  def except_nested_key(key)</p>
+
+<pre><code>copy = Marshal.load(Marshal.dump(self))
+
+copy.each { |(k, v)| v.delete(key) if v.is_a? Hash }
+</code></pre>
+
+<p>  end
+end
+```</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><em>Object-oriented programming makes code understandable by encapsulating moving parts. Functional programming makes code understandable by minimizing moving parts.</em> — Michael Feathers<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Assigning date attributes without ActiveRecord]]></title>
+    <link href="http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record/"/>
+    <updated>2013-05-14T16:13:26+02:00</updated>
+    <id>http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record</id>
+    <content type="html"><![CDATA[<p>When straying away from &ldquo;the rails path&rdquo; we may find ourselves missing some nifty functionality the Rails modules provide us.</p>
+
+<p>The most ubiquitous of those, ActiveRecord, is without a doubt a behemont of nifty functionalities, in this case seemingly instantiating and assigning date object to our models date attributes is a feature we give for granted.</p>
+
+<p>However, if you are building Rails applications without ActiveRecord you might find yourself in a predicament when submitting a form with dates.</p>
+
+<p>Assuming the following class:</p>
+
+<p>```ruby
+class Person &lt; BaseModel
+  # For the sake of simplicity, BaseModel will add all the boilerplate
+  # needed for making our class behave like an AR model class.
+  attr_accessor :name, :birth_date</p>
+
+<p>  def initialize(attributes = nil)</p>
+
+<pre><code>super
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>When submitting a form with the following parameters, <code>name</code> will be automatically assigned but <code>birth_date</code> won&rsquo;t.</p>
+
+<p><code>javascript
+{
+  "name": "James Bond",
+  "birth_date(3i)": "11",
+  "birth_date(2i)": "11",
+  "birth_date(1i)": "1920"
+}
+</code></p>
+
+<p>The reason is simple, neither of the remaining parameters are attributes of our class. On ActiveRecord land, however, the remaining parameters will magically be assigned to our class attribute due to <code>assign_attribute</code> method call, which automatically assigns multi parameter attributes. This works by iterating over the passed attributes, selecting those that are of the type multi parameter, extract their values and assign them to a new hash which will ultimately be assigned to the parent class.</p>
+
+<p>By poking into ActiveRecord&rsquo;s internals we can extract this logic into our own method:</p>
+
+<p>```ruby
+class Person &lt; BaseModel
+  attr_accessor :name, :birth_date</p>
+
+<p>  def initialize(attributes = nil)</p>
+
+<pre><code>super
+
+assign_dates(attributes) if attributes
+</code></pre>
+
+<p>  end</p>
+
+<p>  protected</p>
+
+<p>  def assign_dates(attributes)</p>
+
+<pre><code>new_attributes            = attributes.stringify_keys
+multiparameter_attributes = extract_multiparameter_attributes(new_attributes)
+
+multiparameter_attributes.each do |multiparameter_attribute, values_hash|
+  set_values = (1..3).collect{ |position| values_hash[position].to_i }
+
+  self.send("#{multiparameter_attribute}=", Date.new(*set_values))
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  def extract_multiparameter_attributes(new_attributes)</p>
+
+<pre><code>multiparameter_attributes = []
+
+new_attributes.each do |k, v|
+  if k.include?('(')
+    multiparameter_attributes &lt;&lt; [k, v]
+  end
+end
+
+extract_attributes(multiparameter_attributes)
+</code></pre>
+
+<p>  end</p>
+
+<p>  def extract_attributes(pairs)</p>
+
+<pre><code>attributes = {}
+
+pairs.each do |pair|
+  multiparameter_name, value = pair
+  attribute_name             = multiparameter_name.split('(').first
+  attributes[attribute_name] = {} unless attributes.include?(attribute_name)
+
+  attributes[attribute_name][find_parameter_position(multiparameter_name)] ||= value
+end
+
+attributes
+</code></pre>
+
+<p>  end</p>
+
+<p>  def find_parameter_position(multiparameter_name)</p>
+
+<pre><code>multiparameter_name.scan(/\(([0-9]*).*\)/).first.first.to_i
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>Diving into ActiveRecord&rsquo;s source is a rewarding exercise that greatly helps to understand the &ldquo;magic&rdquo; behind Rails nifty features.</p>
+
+<p><em>Update:</em> It looks like this functionality will get extracted into ActiveModel for use by non-AR classes in 4.2 – <a href="https://github.com/rails/rails/pull/8189">https://github.com/rails/rails/pull/8189</a></p>
+]]></content>
+  </entry>
+  
+</feed>
