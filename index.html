@@ -60,6 +60,74 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/speed-up-performance-of-iterm-and-vim/">Speed up performance of iTerm and Vim</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-16T15:06:30+02:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over a year ago I switched to iTerm2 after several years of happily using Terminal.app on Mac OS X, and although I&rsquo;m more than happy with the change I&rsquo;ve noticed that in the last weeks the overall responsiveness of my terminal has declined. Initially I thought zsh and particularly <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> were at fault, and thus I switched to <a href="http://fishshell.com">fish</a>, my shell was definitely faster, and after getting used to the non POSIX world of fish I even became more productive. However, it didn&rsquo;t actually solve the issues with the terminal itself, and after moving my Vim environment to the shell I experienced horrible delays in the rendering response and startup of iTerm.</p>
+
+<h2>How I solved it.</h2>
+
+<p>First of all I tackled the slow starting time on iTerm, OS X keeps system logs in <code>/var/log/asl</code> and although great after years of usage they just end up piling up, so I just cleared them:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo rm /var/log/asl/*.asl
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>It&rsquo;s important that you don&rsquo;t remove all the files in the asl directory as they also host other files unrelated to the shell.</p></blockquote>
+
+<p>Secondly I changed the startup shell from its default value to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
+
+<p><img src="/images/speed_up_iterm.png" title="'Configuration window for iTerm2'" ></p>
+
+<p>This improved the overall snappiness of iTerm2 but I still had an issue with the rendering performance of Vim.</p>
+
+<h2>Making Vim buttery smooth</h2>
+
+<p>This was an easy one, MacVim is fast, why Vim isn&rsquo;t? I still haven&rsquo;t found an answer to this question but I had no intention of going back to running Vim on a separate GUI shell, fortunately you can use MacVim as a CLI by appending the flag <code>-v</code> then simply alias it to vim, for fish that would be:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">function </span>vim
+</span><span class='line'>  mvim -v
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now your iTerm should be faster and Vim rendering smoother.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/responding-to-scope-changes-with-controller-as-syntax/">Responding to scope changes with controller as syntax</a></h1>
     
     
