@@ -30,7 +30,7 @@ This was an easy one, MacVim is fast, why Vim isn't? I still haven't found an an
 
 ```
 function vim
-  mvim -v
+  mvim -v $argv
 end
 ```
 
