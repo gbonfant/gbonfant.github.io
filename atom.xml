@@ -4,7 +4,7 @@
   <title><![CDATA[Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-16T15:43:14+02:00</updated>
+  <updated>2014-07-16T15:44:12+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -45,7 +45,7 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">function </span>vim
-</span><span class='line'>  mvim -v
+</span><span class='line'>  mvim -v <span class="nv">$argv</span>
 </span><span class='line'>end
 </span></code></pre></td></tr></table></div></figure>
 
