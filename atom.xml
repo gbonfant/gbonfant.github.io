@@ -4,7 +4,7 @@
   <title><![CDATA[Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-11T14:58:54+02:00</updated>
+  <updated>2014-07-16T15:01:46+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Responding to Scope Changes With Controller as Syntax]]></title>
+    <title type="html"><![CDATA[Responding to scope changes with controller as syntax]]></title>
     <link href="http://www.gbonfant.com/blog/responding-to-scope-changes-with-controller-as-syntax/"/>
     <updated>2014-07-11T14:51:50+02:00</updated>
     <id>http://www.gbonfant.com/blog/responding-to-scope-changes-with-controller-as-syntax</id>
@@ -84,7 +84,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Execute a Function on Ng-repeat Done]]></title>
+    <title type="html"><![CDATA[Execute a function on ng-repeat done]]></title>
     <link href="http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done/"/>
     <updated>2013-08-25T21:58:05+02:00</updated>
     <id>http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done</id>
@@ -127,7 +127,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Set-up Log Level for Specific Exceptions]]></title>
+    <title type="html"><![CDATA[Set-up log level for specific exceptions]]></title>
     <link href="http://www.gbonfant.com/blog/set-up-log-level-specific-exceptions/"/>
     <updated>2013-08-19T21:08:49+02:00</updated>
     <id>http://www.gbonfant.com/blog/set-up-log-level-specific-exceptions</id>
@@ -211,7 +211,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Deleting Nested Hashes in Ruby]]></title>
+    <title type="html"><![CDATA[Deleting nested hashes in Ruby]]></title>
     <link href="http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/"/>
     <updated>2013-06-26T20:16:31+02:00</updated>
     <id>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby</id>
@@ -276,7 +276,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Assigning Date Attributes Without ActiveRecord]]></title>
+    <title type="html"><![CDATA[Assigning date attributes without ActiveRecord]]></title>
     <link href="http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record/"/>
     <updated>2013-05-14T16:13:26+02:00</updated>
     <id>http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record</id>
