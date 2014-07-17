@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/speed-up-performance-of-iterm-and-vim/</loc>
+    <lastmod>2014-07-16T15:06:30+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/responding-to-scope-changes-with-controller-as-syntax/</loc>
+    <lastmod>2014-07-11T14:51:50+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done/</loc>
+    <lastmod>2013-08-25T21:58:05+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/set-up-log-level-specific-exceptions/</loc>
+    <lastmod>2013-08-19T21:08:49+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/</loc>
+    <lastmod>2013-06-26T20:16:31+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record/</loc>
+    <lastmod>2013-05-14T16:13:26+02:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/</loc>
+    <lastmod>2014-07-17T20:27:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/</loc>
+    <lastmod>2014-07-17T20:27:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/blog/archives/</loc>
+    <lastmod>2014-07-17T20:27:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.gbonfant.com/about/</loc>
+    <lastmod>2014-07-17T20:27:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  
+</urlset>

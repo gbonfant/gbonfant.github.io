@@ -1,88 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title>Gus Bonfant</title>
-  <meta name="author" content="Gus Bonfant">
-  <meta name="description" content="">
-
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-  <link rel="canonical" href="http://www.gbonfant.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Gus Bonfant" type="application/atom+xml">
-  <link href="//fonts.googleapis.com/css?family=Lato&subset=latin-ext" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-52415972-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Gus Bonfant</a></h1>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/about">About</a></li>
-</ul>
-
-<br>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Gus Bonfant]]></title>
+  <link href="http://www.gbonfant.com/atom.xml" rel="self"/>
+  <link href="http://www.gbonfant.com/"/>
+  <updated>2014-07-17T20:27:00+02:00</updated>
+  <id>http://www.gbonfant.com/</id>
+  <author>
+    <name><![CDATA[Gus Bonfant]]></name>
     
-      <h1 class="entry-title"><a href="/blog/speed-up-performance-of-iterm-and-vim/">Speed up performance of iTerm and Vim</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-07-16T15:06:30+02:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Over a year ago I switched to iTerm2 after several years of happily using Terminal.app on Mac OS X, and although I&rsquo;m more than happy with the change I&rsquo;ve noticed that in the last weeks the overall responsiveness of my terminal has declined. Initially I thought zsh and particularly <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> were at fault, and thus I switched to <a href="http://fishshell.com">fish</a>, my shell was definitely faster, and after getting used to the non POSIX world of fish I even became more productive. However, it didn&rsquo;t actually solve the issues with the terminal itself, and after moving my Vim environment to the shell I experienced horrible delays in the rendering response and startup of iTerm.</p>
+  <entry>
+    <title type="html"><![CDATA[Speed up performance of iTerm and Vim]]></title>
+    <link href="http://www.gbonfant.com/blog/speed-up-performance-of-iterm-and-vim/"/>
+    <updated>2014-07-16T15:06:30+02:00</updated>
+    <id>http://www.gbonfant.com/blog/speed-up-performance-of-iterm-and-vim</id>
+    <content type="html"><![CDATA[<p>Over a year ago I switched to iTerm2 after several years of happily using Terminal.app on Mac OS X, and although I&rsquo;m more than happy with the change I&rsquo;ve noticed that in the last weeks the overall responsiveness of my terminal has declined. Initially I thought zsh and particularly <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> were at fault, and thus I switched to <a href="http://fishshell.com">fish</a>, my shell was definitely faster, and after getting used to the non POSIX world of fish I even became more productive. However, it didn&rsquo;t actually solve the issues with the terminal itself, and after moving my Vim environment to the shell I experienced horrible delays in the rendering response and startup of iTerm.</p>
 
 <h2>How I solved it.</h2>
 
@@ -97,7 +33,7 @@
 
 <p>Secondly I changed the startup shell from its default value to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
 
-<p><img src="/images/speed_up_iterm.png" title="'Configuration window for iTerm2'" ></p>
+<p><img src="http://www.gbonfant.com/images/speed_up_iterm.png" title="'Configuration window for iTerm2'" ></p>
 
 <p>This improved the overall snappiness of iTerm2 but I still had an issue with the rendering performance of Vim.</p>
 
@@ -115,42 +51,15 @@
 
 
 <p>Now your iTerm should be faster and Vim rendering smoother.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/responding-to-scope-changes-with-controller-as-syntax/">Responding to scope changes with controller as syntax</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-11T14:51:50+02:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Before AngularJS 1.2 we used to bind our data models to the <code>$scope</code> object in a controller. I find this confusing as the use  of <code>scope</code> across my angular code looked like some dark magic.</p>
+  <entry>
+    <title type="html"><![CDATA[Responding to scope changes with controller as syntax]]></title>
+    <link href="http://www.gbonfant.com/blog/responding-to-scope-changes-with-controller-as-syntax/"/>
+    <updated>2014-07-11T14:51:50+02:00</updated>
+    <id>http://www.gbonfant.com/blog/responding-to-scope-changes-with-controller-as-syntax</id>
+    <content type="html"><![CDATA[<p>Before AngularJS 1.2 we used to bind our data models to the <code>$scope</code> object in a controller. I find this confusing as the use  of <code>scope</code> across my angular code looked like some dark magic.</p>
 
 <p>Starting on <a href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#115-triangle-squarification-2013-05-22">1.1.5</a> the <em>controller as</em> syntax was introduced, this allowed us to declare our controllers as plain javascript objects, such as:</p>
 
@@ -212,42 +121,15 @@
 
 
 <p>Although this approach works it does not look elegant enough for such a behemoth of a framework. The amount of <a href="https://github.com/allaud/quick-ng-repeat">hacks</a> and <a href="http://stackoverflow.com/questions/15666048/angular-js-service-vs-provider-vs-factory">patterns</a> you sometimes need to apply in order to accomplish a relatively simple task is making me reconsidering angular in favour of more elegant and more performant <a href="http://facebook.github.io/react/">alternatives</a>.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/execute-function-on-ng-repeat-done/">Execute a function on ng-repeat done</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-25T21:58:05+02:00" pubdate data-updated="true">Aug 25<sup>th</sup>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>ngRepeat is one of Angular&rsquo;s most powerful directives and in most cases <em>it just works</em>, however there are times when I find myself wanting to update the DOM or execute a function as soon as the directive has finished its job.</p>
+  <entry>
+    <title type="html"><![CDATA[Execute a function on ng-repeat done]]></title>
+    <link href="http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done/"/>
+    <updated>2013-08-25T21:58:05+02:00</updated>
+    <id>http://www.gbonfant.com/blog/execute-function-on-ng-repeat-done</id>
+    <content type="html"><![CDATA[<p>ngRepeat is one of Angular&rsquo;s most powerful directives and in most cases <em>it just works</em>, however there are times when I find myself wanting to update the DOM or execute a function as soon as the directive has finished its job.</p>
 
 <p>Thanks to Angular&rsquo;s <a href="http://docs.angularjs.org/api/ng.$rootScope.Scope#$destroy">$destroy()</a> I can create a custom directive to accomplish such effect.</p>
 
@@ -282,42 +164,15 @@
 </pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">ng-repeat=</span><span class="s">&quot;item in model.items&quot;</span> <span class="na">repeat-done=</span><span class="s">&quot;foo()&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/set-up-log-level-specific-exceptions/">Set-up log level for specific exceptions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-19T21:08:49+02:00" pubdate data-updated="true">Aug 19<sup>th</sup>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It seems to me that in the Rails world logging is an afterthought, something that can be easily taken care of via 3rd party services, not surprising considering how inexpensive, robust and easy to setup they are.</p>
+  <entry>
+    <title type="html"><![CDATA[Set-up log level for specific exceptions]]></title>
+    <link href="http://www.gbonfant.com/blog/set-up-log-level-specific-exceptions/"/>
+    <updated>2013-08-19T21:08:49+02:00</updated>
+    <id>http://www.gbonfant.com/blog/set-up-log-level-specific-exceptions</id>
+    <content type="html"><![CDATA[<p>It seems to me that in the Rails world logging is an afterthought, something that can be easily taken care of via 3rd party services, not surprising considering how inexpensive, robust and easy to setup they are.</p>
 
 <p>However, if you are manually keeping track of your logs with something like <a href="http://graylog2.org">graylog</a> finding any useful, straightforward information about logging in Rails can be daunting. So without any straightforward answer as to how to set a warn level for all those pesky 404 errors that were polluting our logs I decided to peek into Rails&#8217; internals. <a href="http://api.rubyonrails.org/classes/ActionDispatch/DebugExceptions.html">ActionDispatch::DebugExceptions</a> is a simple piece of middleware in charge of logging exceptions, upon further inspection I stumbled upon <code>log_error</code>.</p>
 
@@ -393,42 +248,15 @@
 
 
 <p>Middleware code is a joy to read and a great reminder that our code should be simple, lean and understandable.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/deleting-nested-hashes-in-ruby/">Deleting nested hashes in Ruby</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-26T20:16:31+02:00" pubdate data-updated="true">Jun 26<sup>th</sup>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I wanted to expose a method for performing a relatively common problem I was facing: removing nested items in a data structure. I tried to aproach the problem by naively duplicating the object and deleting any nested hash.</p>
+  <entry>
+    <title type="html"><![CDATA[Deleting nested hashes in Ruby]]></title>
+    <link href="http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby/"/>
+    <updated>2013-06-26T20:16:31+02:00</updated>
+    <id>http://www.gbonfant.com/blog/deleting-nested-hashes-in-ruby</id>
+    <content type="html"><![CDATA[<p>I wanted to expose a method for performing a relatively common problem I was facing: removing nested items in a data structure. I tried to aproach the problem by naively duplicating the object and deleting any nested hash.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -485,42 +313,15 @@
 </ol>
 </div>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/assigning-date-attributes-without-active-record/">Assigning date attributes without ActiveRecord</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-14T16:13:26+02:00" pubdate data-updated="true">May 14<sup>th</sup>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When straying away from &ldquo;the rails path&rdquo; we may find ourselves missing some nifty functionality the Rails modules provide us.</p>
+  <entry>
+    <title type="html"><![CDATA[Assigning date attributes without ActiveRecord]]></title>
+    <link href="http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record/"/>
+    <updated>2013-05-14T16:13:26+02:00</updated>
+    <id>http://www.gbonfant.com/blog/assigning-date-attributes-without-active-record</id>
+    <content type="html"><![CDATA[<p>When straying away from &ldquo;the rails path&rdquo; we may find ourselves missing some nifty functionality the Rails modules provide us.</p>
 
 <p>The most ubiquitous of those, ActiveRecord, is without a doubt a behemont of nifty functionalities, in this case seemingly instantiating and assigning date object to our models date attributes is a feature we give for granted.</p>
 
@@ -680,39 +481,7 @@
 <p>Diving into ActiveRecord&rsquo;s source is a rewarding exercise that greatly helps to understand the &ldquo;magic&rdquo; behind Rails nifty features.</p>
 
 <p><em>Update:</em> It looks like this functionality will get extracted into ActiveModel for use by non-AR classes in 4.2 – <a href="https://github.com/rails/rails/pull/8189">https://github.com/rails/rails/pull/8189</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Gus Bonfant |
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>.
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+</feed>
