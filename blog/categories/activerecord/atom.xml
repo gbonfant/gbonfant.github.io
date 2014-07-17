@@ -4,7 +4,7 @@
   <title><![CDATA[Category: activerecord | Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/blog/categories/activerecord/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-17T20:32:51+02:00</updated>
+  <updated>2014-07-17T21:31:06+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -51,6 +51,9 @@ end
   "birth_date(1i)": "1920"
 }
 </code></p>
+
+<!-- more -->
+
 
 <p>The reason is simple, neither of the remaining parameters are attributes of our class. On ActiveRecord land, however, the remaining parameters will magically be assigned to our class attribute due to <code>assign_attribute</code> method call, which automatically assigns multi parameter attributes. This works by iterating over the passed attributes, selecting those that are of the type multi parameter, extract their values and assign them to a new hash which will ultimately be assigned to the parent class.</p>
 

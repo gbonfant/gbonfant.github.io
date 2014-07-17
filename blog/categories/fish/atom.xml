@@ -4,7 +4,7 @@
   <title><![CDATA[Category: fish | Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/blog/categories/fish/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-17T20:32:51+02:00</updated>
+  <updated>2014-07-17T21:31:06+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -22,15 +22,18 @@
 
 <h2>How I solved it.</h2>
 
-<p>First of all I tackled the slow starting time on iTerm, OS X keeps system logs in <code>/var/log/asl</code> and although great after years of usage they just end up piling up, so I just cleared them:</p>
+<p>First of all I tackled the slow starting time on iTerm by deleting the system logs OS X keeps in <code>/var/log/asl</code>. After some years of usage without any clean os install they just piled up.</p>
 
 <p><code>bash
 sudo rm /var/log/asl/*.asl
 </code></p>
 
-<blockquote><p>It&rsquo;s important that you don&rsquo;t remove all the files in the asl directory as they also host other files unrelated to the shell.</p></blockquote>
+<blockquote><p>You might not want to delete all the files in the asl directory as it also contains other log files unrelated to the shell.</p></blockquote>
 
-<p>Secondly I changed the startup shell from its default value to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
+<!-- more -->
+
+
+<p>Secondly, I changed the startup shell from its default to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
 
 <p><img src="/images/speed_up_iterm.png" title="&lsquo;Configuration window for iTerm2&rsquo;" ></p>
 
