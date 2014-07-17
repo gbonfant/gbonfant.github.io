@@ -43,7 +43,6 @@ body {
   line-height: 1.7em;
   color: $text-color;
   @extend .serif;
-  letter-spacing: 0.01rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
