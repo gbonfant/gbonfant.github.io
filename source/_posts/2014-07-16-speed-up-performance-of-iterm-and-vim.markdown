@@ -11,15 +11,17 @@ Over a year ago I switched to iTerm2 after several years of happily using Termin
 
 ## How I solved it.
 
-First of all I tackled the slow starting time on iTerm, OS X keeps system logs in ``/var/log/asl`` and although great after years of usage they just end up piling up, so I just cleared them:
+First of all I tackled the slow starting time on iTerm by deleting the system logs OS X keeps in ``/var/log/asl``. After some years of usage without any clean os install they just piled up.
 
 ```bash
 sudo rm /var/log/asl/*.asl
 ```
 
-> It's important that you don't remove all the files in the asl directory as they also host other files unrelated to the shell.
+> You might not want to delete all the files in the asl directory as it also contains other log files unrelated to the shell.
 
-Secondly I changed the startup shell from its default value to ``/usr/local/bin/fish -l``, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to ``/bin/bash -l`` if you are using bash.
+<!-- more -->
+
+Secondly, I changed the startup shell from its default to ``/usr/local/bin/fish -l``, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to ``/bin/bash -l`` if you are using bash.
 
 {% img /images/speed_up_iterm.png 'Configuration window for iTerm2' %}
 

@@ -38,6 +38,8 @@ When submitting a form with the following parameters, ``name`` will be automatic
 }
 ```
 
+<!-- more -->
+
 The reason is simple, neither of the remaining parameters are attributes of our class. On ActiveRecord land, however, the remaining parameters will magically be assigned to our class attribute due to ``assign_attribute`` method call, which automatically assigns multi parameter attributes. This works by iterating over the passed attributes, selecting those that are of the type multi parameter, extract their values and assign them to a new hash which will ultimately be assigned to the parent class.
 
 By poking into ActiveRecord's internals we can extract this logic into our own method:

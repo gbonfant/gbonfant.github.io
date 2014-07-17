@@ -30,6 +30,8 @@ myApp.controller('PersonController', ['$scope', 'NotificationFactory', function(
 }]);
 ```
 
+<!-- more -->
+
 After digging in angular's still confusing and terse [documentation](https://docs.angularjs.org/api/ng/type/$rootScope.Scope) I realised that you can pass a function as a listener argument to ``$watch``, meaning that after properly binding our current context we could watch on our controller's object like so:
 
 ```javascript
