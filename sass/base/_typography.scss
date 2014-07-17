@@ -1,25 +1,18 @@
 $blockquote: $type-border !default;
 
-$serif: 
-"Cardo",
-"Della Respira",
-"EB Garamond",
-"Sorts Mill Goudy",
-"Helvetica Neue",
-Tahoma,
-serif !default;
+$serif: Georgia, serif !default;
 
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 $heading-font-family: $serif !default;
 
-$header-title-font-family: 
+$header-title-font-family:
 "Lato",
 "Fontdiner Swanky",
 "Germania One",
-"Poller One", 
-"Georgia", 
-"Helvetica Neue", 
-Arial, 
+"Poller One",
+"Georgia",
+"Helvetica Neue",
+Arial,
 sans-serif !default;
 
 $header-subtitle-font-family: $serif !default;
@@ -50,6 +43,9 @@ body {
   line-height: 1.7em;
   color: $text-color;
   @extend .serif;
+  letter-spacing: 0.01rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 h1 {
   font-size: 1.9em;
@@ -57,7 +53,7 @@ h1 {
 }
 
 @media only screen and (min-width: 992px) {
-  body { font-size: 1.15em; }
+  body { font-size: 1.2em; }
   h1 { font-size: 1.9em; line-height: 1.1em; }
 }
 
