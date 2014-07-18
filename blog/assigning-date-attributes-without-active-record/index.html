@@ -125,11 +125,6 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-
-
-<!-- more -->
-
-
 <p>The reason is simple, neither of the remaining parameters are attributes of our class. On ActiveRecord land, however, the remaining parameters will magically be assigned to our class attribute due to <code>assign_attribute</code> method call, which automatically assigns multi parameter attributes. This works by iterating over the passed attributes, selecting those that are of the type multi parameter, extract their values and assign them to a new hash which will ultimately be assigned to the parent class.</p>
 
 <p>By poking into ActiveRecord&rsquo;s internals we can extract this logic into our own method:</p>
