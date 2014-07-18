@@ -83,16 +83,19 @@
 
 <h2>How I solved it.</h2>
 
-<p>First of all I tackled the slow starting time on iTerm, OS X keeps system logs in <code>/var/log/asl</code> and although great after years of usage they just end up piling up, so I just cleared them:</p>
+<p>First of all I tackled the slow starting time on iTerm by deleting the system logs OS X keeps in <code>/var/log/asl</code>. After some years of usage without any clean os install they just piled up.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo rm /var/log/asl/*.asl
 </span></code></pre></td></tr></table></div></figure>
 
 
-<blockquote><p>It&rsquo;s important that you don&rsquo;t remove all the files in the asl directory as they also host other files unrelated to the shell.</p></blockquote>
+<blockquote><p>You might not want to delete all the files in the asl directory as it also contains other log files unrelated to the shell.</p></blockquote>
 
-<p>Secondly I changed the startup shell from its default value to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
+<!-- more -->
+
+
+<p>Secondly, I changed the startup shell from its default to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
 
 <p><img src="/images/speed_up_iterm.png" title="'Configuration window for iTerm2'" ></p>
 
@@ -112,6 +115,8 @@
 
 
 <p>Now your iTerm should be faster and Vim rendering smoother.</p>
+
+<p><em>Update</em>: After the release of <a href="http://www.iterm2.com/news.html">iTerm2 2.0</a>, George Nachman, the guy behind iTerm, mentioned on HN that he&rsquo;s improved the overall performance of the terminal in the nightly releases. I&rsquo;m currently running on nightly and the speed and responsiveness is indeed amazing, so there you have it.</p>
 </div>
 
 

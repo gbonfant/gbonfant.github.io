@@ -4,7 +4,7 @@
   <title><![CDATA[Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-17T15:03:34+02:00</updated>
+  <updated>2014-07-18T10:34:58+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -22,35 +22,15 @@
 
 <h2>How I solved it.</h2>
 
-<p>First of all I tackled the slow starting time on iTerm, OS X keeps system logs in <code>/var/log/asl</code> and although great after years of usage they just end up piling up, so I just cleared them:</p>
+<p>First of all I tackled the slow starting time on iTerm by deleting the system logs OS X keeps in <code>/var/log/asl</code>. After some years of usage without any clean os install they just piled up.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo rm /var/log/asl/*.asl
 </span></code></pre></td></tr></table></div></figure>
 
 
-<blockquote><p>It&rsquo;s important that you don&rsquo;t remove all the files in the asl directory as they also host other files unrelated to the shell.</p></blockquote>
+<blockquote><p>You might not want to delete all the files in the asl directory as it also contains other log files unrelated to the shell.</p></blockquote>
 
-<p>Secondly I changed the startup shell from its default value to <code>/usr/local/bin/fish -l</code>, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to <code>/bin/bash -l</code> if you are using bash.</p>
-
-<p><img src="http://www.gbonfant.com/images/speed_up_iterm.png" title="'Configuration window for iTerm2'" ></p>
-
-<p>This improved the overall snappiness of iTerm2 but I still had an issue with the rendering performance of Vim.</p>
-
-<h2>Making Vim buttery smooth</h2>
-
-<p>This was an easy one, MacVim is fast, why Vim isn&rsquo;t? I still haven&rsquo;t found an answer to this question but I had no intention of going back to running Vim on a separate GUI shell, fortunately you can use MacVim as a CLI by appending the flag <code>-v</code> then simply alias it to vim, for fish that would be:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">function </span>vim
-</span><span class='line'>  mvim -v <span class="nv">$argv</span>
-</span><span class='line'>end
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now your iTerm should be faster and Vim rendering smoother.</p>
 ]]></content>
   </entry>
   
@@ -93,34 +73,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>After digging in angular&rsquo;s still confusing and terse <a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope">documentation</a> I realised that you can pass a function as a listener argument to <code>$watch</code>, meaning that after properly binding our current context we could watch on our controller&rsquo;s object like so:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">myApp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;PersonController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="s1">&#39;NotificationFactory&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">NotificationFactory</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">name</span>          <span class="o">=</span> <span class="s1">&#39;James&#39;</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">notifications</span> <span class="o">=</span> <span class="nx">NotificationFactory</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">$scope</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="nx">angular</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">notifications</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// This does work!</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">});</span>
-</span><span class='line'><span class="p">}]);</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Although this approach works it does not look elegant enough for such a behemoth of a framework. The amount of <a href="https://github.com/allaud/quick-ng-repeat">hacks</a> and <a href="http://stackoverflow.com/questions/15666048/angular-js-service-vs-provider-vs-factory">patterns</a> you sometimes need to apply in order to accomplish a relatively simple task is making me reconsidering angular in favour of more elegant and more performant <a href="http://facebook.github.io/react/">alternatives</a>.</p>
 ]]></content>
   </entry>
   
@@ -367,120 +321,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The reason is simple, neither of the remaining parameters are attributes of our class. On ActiveRecord land, however, the remaining parameters will magically be assigned to our class attribute due to <code>assign_attribute</code> method call, which automatically assigns multi parameter attributes. This works by iterating over the passed attributes, selecting those that are of the type multi parameter, extract their values and assign them to a new hash which will ultimately be assigned to the parent class.</p>
-
-<p>By poking into ActiveRecord&rsquo;s internals we can extract this logic into our own method:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">BaseModel</span>
-</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:birth_date</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">attributes</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">super</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">assign_dates</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span> <span class="k">if</span> <span class="n">attributes</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kp">protected</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">assign_dates</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">new_attributes</span>            <span class="o">=</span> <span class="n">attributes</span><span class="o">.</span><span class="n">stringify_keys</span>
-</span><span class='line'>    <span class="n">multiparameter_attributes</span> <span class="o">=</span> <span class="n">extract_multiparameter_attributes</span><span class="p">(</span><span class="n">new_attributes</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">multiparameter_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">multiparameter_attribute</span><span class="p">,</span> <span class="n">values_hash</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">set_values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span> <span class="o">|</span><span class="n">position</span><span class="o">|</span> <span class="n">values_hash</span><span class="o">[</span><span class="n">position</span><span class="o">].</span><span class="n">to_i</span> <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">multiparameter_attribute</span><span class="si">}</span><span class="s2">=&quot;</span><span class="p">,</span> <span class="no">Date</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">*</span><span class="n">set_values</span><span class="p">))</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">extract_multiparameter_attributes</span><span class="p">(</span><span class="n">new_attributes</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">multiparameter_attributes</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">new_attributes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span>
-</span><span class='line'>      <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">multiparameter_attributes</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">]</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">extract_attributes</span><span class="p">(</span><span class="n">multiparameter_attributes</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">extract_attributes</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">pairs</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">pair</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">multiparameter_name</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">pair</span>
-</span><span class='line'>      <span class="n">attribute_name</span>             <span class="o">=</span> <span class="n">multiparameter_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span>
-</span><span class='line'>      <span class="n">attributes</span><span class="o">[</span><span class="n">attribute_name</span><span class="o">]</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">unless</span> <span class="n">attributes</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">attribute_name</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">attributes</span><span class="o">[</span><span class="n">attribute_name</span><span class="o">][</span><span class="n">find_parameter_position</span><span class="p">(</span><span class="n">multiparameter_name</span><span class="p">)</span><span class="o">]</span> <span class="o">||=</span> <span class="n">value</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">attributes</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">find_parameter_position</span><span class="p">(</span><span class="n">multiparameter_name</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">multiparameter_name</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="sr">/\(([0-9]*).*\)/</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Diving into ActiveRecord&rsquo;s source is a rewarding exercise that greatly helps to understand the &ldquo;magic&rdquo; behind Rails nifty features.</p>
-
-<p><em>Update:</em> It looks like this functionality will get extracted into ActiveModel for use by non-AR classes in 4.2 – <a href="https://github.com/rails/rails/pull/8189">https://github.com/rails/rails/pull/8189</a></p>
 ]]></content>
   </entry>
   

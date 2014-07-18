@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angularjs | Gus Bonfant]]></title>
   <link href="http://www.gbonfant.com/blog/categories/angularjs/atom.xml" rel="self"/>
   <link href="http://www.gbonfant.com/"/>
-  <updated>2014-07-17T15:03:34+02:00</updated>
+  <updated>2014-07-18T10:34:58+02:00</updated>
   <id>http://www.gbonfant.com/</id>
   <author>
     <name><![CDATA[Gus Bonfant]]></name>
@@ -43,6 +43,9 @@ myApp.controller(&lsquo;PersonController&rsquo;, [&lsquo;$scope&rsquo;, &lsquo;N
 <p>  });
 }]);
 ```</p>
+
+<!-- more -->
+
 
 <p>After digging in angular&rsquo;s still confusing and terse <a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope">documentation</a> I realised that you can pass a function as a listener argument to <code>$watch</code>, meaning that after properly binding our current context we could watch on our controller&rsquo;s object like so:</p>
 
