@@ -37,3 +37,5 @@ end
 ```
 
 Now your iTerm should be faster and Vim rendering smoother.
+
+_Update_: After the release of [iTerm2 2.0](http://www.iterm2.com/news.html), George Nachman, the guy behind iTerm, mentioned on HN that he's improved the overall performance of the terminal in the nightly releases. I'm currently running on nightly and the speed and responsiveness is indeed amazing, so there you have it.
