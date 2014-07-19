@@ -13,26 +13,26 @@ Over a year ago I switched to iTerm2 after several years of happily using Termin
 
 ## Fast terminal startup time
 
-OS X keeps system logs under ``/var/log/asl``, I've used this laptop for over 5 years and installed every major OS release on top of the previous one, that is perhaps why I had massive amounts of log files, and although you might now be in the same situation it helps to clean them up, so go ahead and run:
+OS X keeps system logs under ``/var/log/asl``, I've used this laptop for over five years and have installed every major OS release on top of the previous one, that is perhaps why I had massive amounts of log files, and although you might not be in the same situation it helps to clean them up, so go ahead and run:
 
 ```bash
 sudo rm /var/log/asl/*.asl
 ```
 
-> You might not want to delete all the files in the asl directory as it also contains other log files unrelated to the shell.
+> Don't delete all the files in the asl directory as it also contains other log files unrelated to the shell.
 
-Explicitly invoking your preferred shell instead of relying on whatever is set as login shell seems to also help with startup times, for iTerm2 this can be done under Profiles > General > Command, you'll want to input the path for your shell in here, for me that is ``/usr/local/bin/fish -l``.
+Explicitly invoking your preferred shell instead of relying on whatever is set as login shell also help with startup times, for iTerm2 this can be done under Profiles > General > Command, you'll want to input the path for your shell in here, for me that is ``/usr/local/bin/fish -l``.
 
 {% img /images/speed_up_iterm.png 'Configuration window for iTerm2' %}
 
 ## Buttery smooth Vim rendering
-For some reason I haven't been able to figure out yet, MacVim's rendering performance is much better than Vim's so you might want to replace vim with it. Run the following command to install via Homebrew:
+For some reason I haven't been able to figure out yet, MacVim's rendering performance is much better than Vim's so you'll want to replace vim with it. Run the following command to install macvim via Homebrew:
 
 ```bash
 brew install macvim --with-cscope --with-lua --HEAD
 ```
 
-This will install the latest macvim release with cscope and lua support. If you are like me and like to run Vim in the terminal you don't have to give that up, simply alias your vim command to use macvim in CLI mode. For fish users that can be done by adding the following function to your configuration:
+If you are like me and prefer to run Vim in the terminal, the thought of installing an application that runs VIM on a separate GUI might not sound appealing, however you can run macvim in CLI mode and get all the benefits without leaving your terminal, simply alias your vim command to use macvim in CLI mode. For fish users that can be done by adding the following function to your configuration:
 
 ```
 function vim
