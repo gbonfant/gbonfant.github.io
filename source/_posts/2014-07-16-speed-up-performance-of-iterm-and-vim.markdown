@@ -4,7 +4,7 @@ title: "Speed up performance of iTerm and Vim"
 date: 2014-07-16 15:06:30 +0200
 comments: true
 description: "Speed up performance of iTerm2, Terminal.app and Vim in Mac OS X"
-categories: vim fish performance
+categories: vim fish performance iterm
 ---
 
 Over a year ago I switched to iTerm2 after several years of happily using Terminal.app on Mac OS X, and although I was happy with the change I noticed a drop in the responsiveness of my terminal. Initially I thought zsh, and particularly [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), were at fault and thus, I switched to [fish](http://fishshell.com). My shell was definitely faster, and after getting used to the non POSIX world of fish I even became more productive. However, it didn't actually solve the issues with the terminal itself, and after moving my Vim environment to the shell I experienced horrible delays in the rendering response and startup of iTerm. Here's how I solved it.
