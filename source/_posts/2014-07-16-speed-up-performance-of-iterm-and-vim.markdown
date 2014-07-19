@@ -7,11 +7,13 @@ description: "Speed up performance of iTerm2, Terminal.app and Vim in Mac OS X"
 categories: vim fish performance
 ---
 
-Over a year ago I switched to iTerm2 after several years of happily using Terminal.app on Mac OS X, and although I'm more than happy with the change I've noticed that in the last weeks the overall responsiveness of my terminal has declined. Initially I thought zsh and particularly [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) were at fault, and thus I switched to [fish](http://fishshell.com), my shell was definitely faster, and after getting used to the non POSIX world of fish I even became more productive. However, it didn't actually solve the issues with the terminal itself, and after moving my Vim environment to the shell I experienced horrible delays in the rendering response and startup of iTerm.
+Over a year ago I switched to iTerm2 after several years of happily using Terminal.app on Mac OS X, and although I was happy with the change I noticed a drop in the responsiveness of my terminal. Initially I thought zsh, and particularly [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), were at fault and thus, I switched to [fish](http://fishshell.com). My shell was definitely faster, and after getting used to the non POSIX world of fish I even became more productive. However, it didn't actually solve the issues with the terminal itself, and after moving my Vim environment to the shell I experienced horrible delays in the rendering response and startup of iTerm. Here's how I solved it.
 
-## How I solved it.
+<!-- more -->
 
-First of all I tackled the slow starting time on iTerm by deleting the system logs OS X keeps in ``/var/log/asl``. After some years of usage without any clean os install they just piled up.
+## Fast terminal startup time
+
+OS X keeps system logs under ``/var/log/asl``, I've used this laptop for over 5 years and installed every major OS release on top of the previous one, that is perhaps why I had massive amounts of log files, and although you might now be in the same situation it helps to clean them up, so go ahead and run:
 
 ```bash
 sudo rm /var/log/asl/*.asl
@@ -19,16 +21,18 @@ sudo rm /var/log/asl/*.asl
 
 > You might not want to delete all the files in the asl directory as it also contains other log files unrelated to the shell.
 
-<!-- more -->
-
-Secondly, I changed the startup shell from its default to ``/usr/local/bin/fish -l``, this can be done under Profiles > General > Command in iTerm 2 and the value you need to add will depend on which shell you are using and where in your filesystem it is located, for instance you might want to set it up to ``/bin/bash -l`` if you are using bash.
+Explicitly invoking your preferred shell instead of relying on whatever is set as login shell seems to also help with startup times, for iTerm2 this can be done under Profiles > General > Command, you'll want to input the path for your shell in here, for me that is ``/usr/local/bin/fish -l``.
 
 {% img /images/speed_up_iterm.png 'Configuration window for iTerm2' %}
 
-This improved the overall snappiness of iTerm2 but I still had an issue with the rendering performance of Vim.
+## Buttery smooth Vim rendering
+For some reason I haven't been able to figure out yet, MacVim's rendering performance is much better than Vim's so you might want to replace vim with it. Run the following command to install via Homebrew:
 
-## Making Vim buttery smooth
-This was an easy one, MacVim is fast, why Vim isn't? I still haven't found an answer to this question but I had no intention of going back to running Vim on a separate GUI shell, fortunately you can use MacVim as a CLI by appending the flag ``-v`` then simply alias it to vim, for fish that would be:
+```bash
+brew install macvim --with-cscope --with-lua --HEAD
+```
+
+This will install the latest macvim release with cscope and lua support. If you are like me and like to run Vim in the terminal you don't have to give that up, simply alias your vim command to use macvim in CLI mode. For fish users that can be done by adding the following function to your configuration:
 
 ```
 function vim
@@ -36,6 +40,8 @@ function vim
 end
 ```
 
-Now your iTerm should be faster and Vim rendering smoother.
+## Living on the edge
+Ever since making the switch to iTerm I've dealt with the poor refresh rate of text, you might have never seen this problem but for someone with OCD that types relatively fast this has annoyed me to no end and has been the only reason why it took me so long to switch to iTerm and stick with it.
 
-_Update_: After the release of [iTerm2 2.0](http://www.iterm2.com/news.html), George Nachman, the guy behind iTerm, mentioned on HN that he's improved the overall performance of the terminal in the nightly releases. I'm currently running on nightly and the speed and responsiveness is indeed amazing, so there you have it.
+Fortunately after the release of iTerm2 2.0, George Nachman mentioned on HN that he's made significant improvements to the performance of iTerm in the nightly builds, I've been running on nightly ever since I saw his reply and the speed and responsiveness is indeed quite amazing, so go ahead and grab your [nightly build](http://www.iterm2.com/downloads.html).
+
