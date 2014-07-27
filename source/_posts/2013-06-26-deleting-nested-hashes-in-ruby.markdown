@@ -6,8 +6,9 @@ comments: true
 description: "How to delete nested hashes in Ruby"
 categories: ruby
 ---
+When consuming JSON APIs that return deeply nested JSON data structures you might face a common problem: massaging this data. In this particular case I needed to minimize the payload for a JavaScript application and thus needed to delete unnecessary deeply nested objects.
 
-I wanted to expose a method for performing a relatively common problem I was facing: removing nested items in a data structure. I tried to aproach the problem by naively duplicating the object and deleting any nested hash.
+Although I could've iterated through the original response and deleted anything I didn't need, I've learned to love immutability, and thus I approached the issue by duplicating the response and then deleting the copy's values.
 
 ```ruby
 class Hash
@@ -23,7 +24,7 @@ class Hash
 end
 ```
 
-This implementation exposes a few flaws. To begin with, both ``dup`` and ``clone`` make shallow copies of the given object, which means our nested hashes are just references to the original object, because of this, unless the nested hashes in the original object were frozen both methods will mutate the original object state! [^1]
+This implementation exposes a few flaws. To begin with, both ``dup`` and ``clone`` make shallow copies of the given object, which means that the nested hashes are just references to the original object, because of this, unless the nested hashes in the original object were frozen both methods will mutate the original object state.
 
 Fortunately we can achieve a deep copy of our original object and preserve its integrity using [Marshal](http://ruby-doc.org/core-1.9.3/Marshal.html).
 
@@ -36,5 +37,3 @@ class Hash
   end
 end
 ```
-
-[^1]: _Object-oriented programming makes code understandable by encapsulating moving parts. Functional programming makes code understandable by minimizing moving parts._ — Michael Feathers
