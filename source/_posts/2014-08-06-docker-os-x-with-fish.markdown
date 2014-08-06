@@ -8,7 +8,7 @@ categories: unix
 
 Docker is intended to be ran in Linux environments, but thanks to [Boot2Docker](https://github.com/boot2docker/boot2docker), a lightweight Linux distribution specially made for this purpose, we can run docker in a mac environment with ease.
 
-Before starting out make sure you are running VirtualBox, get it either via a direct [download link](https://www.virtualbox.org/wiki/Downloads) or via [homebrew-cask] (http://caskroom.io/). Better yet you could set it up with something like [Vagrant](http://www.vagrantup.com/), the choice is up to you.
+Before starting out make sure you are running VirtualBox, get it either via a direct [download link](https://www.virtualbox.org/wiki/Downloads) or via [homebrew-cask](http://caskroom.io/). Better yet you could set it up with something like [Vagrant](http://www.vagrantup.com/), the choice is up to you.
 
 Once you have VirtualBox the next steps are as straightforward, first get boot2docker via homebrew ``$ brew install boot2docker ``.
 
