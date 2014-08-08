@@ -27,8 +27,46 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 ```
 
-After setting this up you'll want to restart ``sshd`` and get your pair's public key, we'll authorize this key by adding it to ``~/.ssh/authorized_keys``
+After setting this up you'll want to restart ``sshd`` and get your pair's public key, we'll authorize this key by adding it to ``~/.ssh/authorized_keys`` along with a command to automatically start tmux and attach to our session:
+
+```bash
+command="/usr/local/bin/tmux attach -t YOUR_TMUX_SESSION" YOUR_PAIR_KEY
+```
+
+Once you are done with the setup everything becomes extremely straightforward: First you create a new tmux session with the same name you passed earlier ``tmux new -s YOUR_TMUX_SESSION`` and then you have your pair SSH into your machine ``ssh user@hostname``
+
+
+## Taking it further
+
+The cool thing is, if your pair sets up their environment too you can open a new tab on iTerm and ssh into their machine, thus attaching to their tmux session. Now you both can pair while keeping your own environment, bindings and other preferences. This becomes very powerful when combining with tmux/iTerm's split panes and multiple tabs.
+
+Now a problem arises when you have something to debug while keeping the application running. Say one of you make a change to the front-end and the other wants to use a tool such as Chrome Web Inspector to debug it. How can we easily share a running application that is being developed at the same time?
+
+
+## Knocking rack apps like a superhero
+
+The guys over a Basecamp released a zero-configuration Rack server for OS X that let's you set up a Rack server in seconds[3], installation is as straightforward as it gets:
+
+```bash
+$ $ curl get.pow.cx | sh
+```
+
+Afterwards you want to symlink the application you are working on
+
+```bash
+$ cd ~/.pow
+$ ln -s /path/to/myapp
+```
+
+Now you can access your app at ``http://myapp.dev`` and your pair can access it by appending ``.xip.io`` and your LAN IP address in the following manner: ``http://myapp.10.0.1.11.xip.io``
+
+Tailing logs and restarting the server can be done just as you would on a real production server. By creating a ``restart.txt`` file and tailing ``development.log``, and just as in a production server you can automate this process with all kind of rake tasks.
+
+
+## Wrapping it up
+Pairing is all about making your pair happy, but developers are picky people, if both me and my pair can work with our preferred settings we both are happy and can focus on the real task at hand.
 
 
 [^1: Taken from https://gist.github.com/trestrantham/dfc1da1b9580da46001c]
 [^2: Although they should really be using a password manager]
+[^3: http://pow.cx]
