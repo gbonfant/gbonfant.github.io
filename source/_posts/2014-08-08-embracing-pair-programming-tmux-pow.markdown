@@ -67,7 +67,7 @@ Tailing logs and restarting the server can be done just as you would on a remote
 
 
 ## Wrapping it up
-Pair programming is all about making your pair happy, but developers are picky people, if both my pair and I can work with our preferred settings we both are happy and can focus on the real task at hand.
+It is said that the first rule of pair programming is making your pair happy, but developers are picky, if both my pair and I can work with our preferred settings and in our most familiar environment achieving happiness becomes easier, but perhaps most importantly we can then focus on the real task at hand.
 
 [^1]: Taken from [here](https://gist.github.com/trestrantham/dfc1da1b9580da46001c)
 [^2]: http://pow.cx
