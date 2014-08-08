@@ -3,7 +3,7 @@ layout: post
 title: "Embracing (remote) pair programming with tmux and pow!"
 date: 2014-08-08 19:24:31 +0200
 comments: true
-categories: productivity
+categories: productivity unix
 ---
 
 Many articles and books have been written about the benefits of pair programming, on that same line many companies are realising that is easier to hire from a worldwide pool of talent rather than a, sometimes limited, regional pool. If not allowing your employees to work from home when they need it keeps them motivated and productive.
