@@ -17,7 +17,7 @@ This kind of inadvertent mutability can be spotted when working with custom dire
 
 ## Enter track by clause
 
-Introduced in Angular 1.2, ``track by`` allows us to specify an identity key, preventing ngRepeat from injecting ``$$hashkey``. Most importantly the directive will **not** recreate DOM nodes for which their underlying associated objects have not changed. This also keeps any unnecessary linking or compiling phases from being executed.
+Introduced in Angular 1.2, ``track by`` allows us to specify an identity key, preventing ngRepeat from injecting ``$$hashKey``. Most importantly the directive will **not** recreate DOM nodes for which their underlying associated objects have not changed. This also keeps any unnecessary linking or compiling phases from being executed.
 
 I have created a [fiddle](http://jsfiddle.net/gbonfant/Mrn66/6/) to showcase this behaviour. In this scenario we simply create a collection with 300 objects and rebuild it every time we click a button.
 
