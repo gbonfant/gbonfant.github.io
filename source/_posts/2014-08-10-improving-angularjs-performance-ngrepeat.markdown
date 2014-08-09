@@ -18,6 +18,9 @@ Introduced in Angular 1.2, ``track by`` allows us to specify an identity key, pr
 
 I have created a [fiddle](http://jsfiddle.net/gbonfant/Mrn66/6/) to showcase this behaviour. In this scenario we simply create a collection with 300 objects and rebuild it every time we click a button.
 
+{% img /images/ngRepeat-memory.jpg 'ngRepeat without track by: memory graph' %}
+
+{% img /images/ngRepeat-stack.jpg 'ngRepeat without track by: stack chart' %}
 
 As we can see on every rebuild we are creating more nodes and every operation takes approximately 100~200ms.
 
