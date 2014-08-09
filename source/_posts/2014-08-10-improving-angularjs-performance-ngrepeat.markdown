@@ -10,6 +10,8 @@ When looking into debugging JavaScript performance bottlenecks memory leaks are 
 
 However, when looking at performance bottlenecks in AngularJS applications, I find it easier to begging by inspecting the usage of ngRepeat. DOM operations are expensive and ngRepeat is not particularly efficient at them, by default the directive will create as many DOM nodes as items in your collection, and subsequently destroy and recreate these nodes every time the underlying data changes, furthermore ngRepeat will mutate your original collection in order to associate your JavaScript objects to a DOM node.
 
+<!-- more -->
+
 This kind of inadvertent mutability can be spotted when working with custom directives, by inspecting the scope of the directive we can see a ``$$hashKey`` attribute appended. So, how can we avoid ngRepeat from recreating DOM nodes and mutating our objects?
 
 ## Enter track by clause
@@ -25,6 +27,10 @@ I have created a [fiddle](http://jsfiddle.net/gbonfant/Mrn66/6/) to showcase thi
 As we can see on every rebuild we are creating more nodes and every operation takes approximately 100~200ms.
 
 On the other hand, if we provide a unique, immutable id to the ngRepeat directive the node count does not increase and every rebuild operation takes only ~6ms.
+
+{% img /images/ngRepeat-memory-trackby.jpg 'ngRepeat with track by: memory graph' %}
+
+{% img /images/ngRepeat-stack-trackby.jpg 'ngRepeat with track by: stack chart' %}
 
 ## Conclusion
 
