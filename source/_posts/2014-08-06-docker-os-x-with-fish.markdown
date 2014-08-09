@@ -3,6 +3,7 @@ layout: post
 title: "Docker in OS X with fish"
 date: 2014-08-06 21:01:29 +0200
 comments: true
+description: "Installing Docker in OS X with fish shell"
 categories: unix
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "Improving AngularJS performance: ngRepeat"
 date: 2014-08-10 09:28:31 +0200
 comments: false
+description: "Improving AngularJS performance: ngRepeat."
 categories: javascript, angularjs, performance
 ---
 
