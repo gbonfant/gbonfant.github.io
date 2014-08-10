@@ -19,6 +19,6 @@ Now you might think you can accomplish the same thing by tailing your logs and, 
 
 {% img /images/ngrok-ui.jpg 'ngrok UI' %}
 
-So not only can you share your local application with your remote pair, you get to see a clear overview of all the incoming requests, along with pretty-printed versions of any JSON/XML transactions, and you get to easily replicate bugs by replaying a request! This is specially powerful if somebody else is testing your application.
+So not only you can share your local application with your remote pair, you get to see a clear overview of all the incoming requests, along with pretty-printed versions of any JSON/XML transactions, and you get to easily replicate bugs by replaying a request! This is specially powerful for testing remote APIs or inspecting a tester's scenarios.
 
 Ngrok is super simple to setup, simply run ``$ brew install ngrok`` if you are on OS X or download the single binary at its homepage.
