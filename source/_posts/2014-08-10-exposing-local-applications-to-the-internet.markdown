@@ -3,6 +3,7 @@ layout: post
 title: "Exposing local applications to the internet"
 date: 2014-08-10 21:02:25 +0200
 comments: true
+description: "Exposing local applications to the internet with ngrok"
 categories: productivity
 ---
 
