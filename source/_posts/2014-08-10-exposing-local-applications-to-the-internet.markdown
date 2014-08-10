@@ -9,7 +9,7 @@ categories: productivity
 
 In a [recent post](http://www.gbonfant.com/blog/embracing-pair-programming-tmux-pow/) where I discussed my current environment for remote pair programming I mentioned the use of [pow!](http://pow.cx/) for sharing local rake applications with my remote pair, or even local coworkers. However, this setup only worked for rake applications. What then if you are running a node/python/scala server?
 
-Recently I stumbled upon [ngrok](ngrok.com), and it has changed my development cycle for the better. Ngrok is a superpowered pow that works with any application and it comes with all kind of nifty features.
+Recently I stumbled upon [ngrok](http://ngrok.com), and it has changed my development cycle for the better. Ngrok is a superpowered pow that works with any application and it comes with all kind of nifty features.
 
 <!-- more -->
 
