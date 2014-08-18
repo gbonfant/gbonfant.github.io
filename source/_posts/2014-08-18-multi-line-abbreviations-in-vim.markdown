@@ -32,7 +32,8 @@ For instance, by typing ``iif<SPACE>`` I get:
 Which can be achieved by a simple combination of autocommand, key annotations, and abbreviations.
 
 ```bash
-# Replace `iif` with function declaration, for the current buffer, only for .js files
+# Replace `iif` with function declaration,
+# for the current buffer, only for .js files
 autocmd FileType javascript :iabbrev <buffer> iif (function() {
       \<CR>'use strict';
       \<CR>
