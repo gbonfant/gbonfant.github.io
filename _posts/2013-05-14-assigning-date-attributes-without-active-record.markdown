@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: post-no-feature
 title: "Assigning date attributes without ActiveRecord"
 date: 2013-05-14 16:13:26 +0200
-layout: post-no-feature
 category: blog
 description: "How to generate and assign date attributes to a plain ruby class without ActiveRecord."
 ---
