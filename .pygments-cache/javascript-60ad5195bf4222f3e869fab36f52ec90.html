@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span class="nx">myApp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;PersonController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="s1">&#39;NotificationFactory&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">NotificationFactory</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span>          <span class="o">=</span> <span class="s1">&#39;James&#39;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">notifications</span> <span class="o">=</span> <span class="nx">NotificationFactory</span><span class="p">;</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s1">&#39;notifications&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;This does not work&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}]);</span>
+</pre></div>

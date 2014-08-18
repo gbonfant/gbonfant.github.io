@@ -1,0 +1,16 @@
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">log_error</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">)</span>
+  <span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="k">unless</span> <span class="n">logger</span>
+
+  <span class="n">exception</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">exception</span>
+
+  <span class="n">trace</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">application_trace</span>
+  <span class="n">trace</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">framework_trace</span> <span class="k">if</span> <span class="n">trace</span><span class="o">.</span><span class="n">empty?</span>
+
+  <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Deprecation</span><span class="o">.</span><span class="n">silence</span> <span class="k">do</span>
+    <span class="c1"># string manipulation code ...</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">fatal</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">message</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
