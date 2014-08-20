@@ -3,7 +3,7 @@ layout: post-no-feature
 title: "Logging specific exceptions"
 date: 2013-08-19 21:08:49 +0200
 category: blog
-description: "How to manually setup different log levels for specific Rails exceptions"
+description: "How to manually setup different log levels for specific Rails exceptions."
 ---
 
 In the Rails world logging seems to be delegated to third party services, these are easy to setup, cheap, and robust.
