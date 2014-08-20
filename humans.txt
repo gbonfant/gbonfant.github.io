@@ -6,12 +6,10 @@ Creator: {{ site.owner.name }}
 Contact: {{ site.owner.email }}
 Twitter: {{ site.owner.twitter }}
 Location: {{ site.owner.location }}
-                           
-/* THANKS */                           
+
+/* THANKS */
 Creator of Balzac theme: Cole Townsend
 Twitter: @twnsndco
 
-/* SITE */                         
+/* SITE */
 Last update: {{ site.time | date: '%F' }}
-Standards: {{ site.tools.standards }}                        
-Software: {{ site.tools.software }}

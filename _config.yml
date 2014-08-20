@@ -1,23 +1,15 @@
-title:            Gus Bonfant
-tagline:          A beautiful theme.
-description:      Hi. I'm Gus Bonfant, a programmer with an interest in design, psychology, and human-computer interaction.
-
-#Comment out url when working locally to resolve base urls correctly
-# url: http://jekyll.gtat.me
+title:        Gus Bonfant
+tagline:      A beautiful theme.
+description:  Hi. I'm Gus Bonfant, a programmer with an interest in design, psychology, and human-computer interaction.
 
 # Owner/author information
 owner:
-  name:           Gus Bonfant
-  bio:            "Curious Programmer"
-  email:          gbonfant@me.com
-  twitter:        gbonfant
-  github:         gbonfant
-  # disqus:         balzac
-  location:       "Amsterdam, NL"
-
-tools:
-  standards:      "HTML, SCSS, Jekyll"
-  software:       "git"
+  name:      Gus Bonfant
+  bio:       "Curious Programmer"
+  email:     gbonfant@me.com
+  twitter:   gbonfant
+  github:    gbonfant
+  location:  "Amsterdam, NL"
 
 # Links to include in top navigation
 # For external links add external: true
