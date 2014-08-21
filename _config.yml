@@ -16,7 +16,7 @@ owner:
 links:
   - title: About
     url: /about
-  - title: Archives
+  - title: Articles
     url: /blog
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
