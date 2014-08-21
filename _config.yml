@@ -1,0 +1,47 @@
+title:        Gus Bonfant
+tagline:      A beautiful theme.
+description:  Hi. I'm Gus Bonfant, a programmer with an interest in design, psychology, and human-computer interaction.
+
+# Owner/author information
+owner:
+  name:      Gus Bonfant
+  bio:       "Curious Programmer"
+  email:     gbonfant@me.com
+  twitter:   gbonfant
+  github:    gbonfant
+  location:  "Amsterdam, NL"
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: About
+    url: /about
+  - title: Articles
+    url: /blog
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:     Europe/Amsterdam
+future:       true
+highlighter:  pygments
+markdown:     kramdown
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers:
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+sass:
+    style: :compressed
+
+permalink:   /blog/:title
+
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp"]
