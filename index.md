@@ -1,7 +1,6 @@
 ---
 layout: home
 title: "Recent Posts"
-tags: [Jekyll, theme, responsive, blog, template]
-image:
-  feature: typewriter.jpg
+tags: [programming, software engineering, vim, javascript, ruby]
+description: Software Engineer with an interest in design, psychology and human-computer interaction.
 ---
