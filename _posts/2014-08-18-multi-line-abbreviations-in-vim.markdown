@@ -6,7 +6,7 @@ category: blog
 description: "Create code snippets with Vim's built-in abbreviations feature."
 ---
 
-Abbreviations are a pretty neat, and often ignored, feature of Vim. Abbreviations are similar to mappings, but they are meant to be used in Insert mode instead, and allow you to replace some combination of letters with a word. This can be helpful for common typos or, as their name suggest, for abbreviating long words.
+Abbreviations are a pretty neat, and often ignored, feature of Vim. Similar to mappings, abbreviations are meant to be used in Insert mode, and allow you to replace some combination of letters with a word. This can be helpful for common typos or, as their name suggest, for abbreviating long words.
 
 For instance, _approachable_ is both a relatively long word and I mistype it 80% of the time. With abbreviations I can issue the following command:
 
