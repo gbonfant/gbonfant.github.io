@@ -323,7 +323,15 @@ header.site-header nav {
         .intro {
             text-align: left;
         }
+
+        .about-description {
+          text-align: center;
+        }
     }
+}
+
+.about-content p {
+  text-align: justify;
 }
 
 // Archive Page
