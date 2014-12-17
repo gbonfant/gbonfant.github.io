@@ -24,7 +24,7 @@ Now errors are easier to track:
 
 {% highlight js %}
 TypeError: 'undefined' is not a function (near '...}.bind(this),...')
-    at FooController (http://127.0.0.1:59323/assets/angular/controllers/foo_controller.js?body=1:72)
+    at FooController (http://127.0.0.1:59323/assets/angular/trolley/trolley_controller.js?body=1:72)
 {% endhighlight %}
 
 Happy debugging!
