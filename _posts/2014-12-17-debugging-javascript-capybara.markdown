@@ -10,7 +10,7 @@ In a recent project I found myself with a failing integration test for a part of
 
 {% highlight js %}
 TypeError: 'undefined' is not a function (near '...}.bind(this),...')
-    at FooController (http://127.0.0.1:59119/assets/application.js:64502)
+    at TrolleyController (http://127.0.0.1:59119/assets/application.js:64502)
 {% endhighlight %}
 
 This is caused because Rails serves a compressed version of your assets in the test environment. The simplest way to solve this is to update the environment files
@@ -24,7 +24,7 @@ Now errors are easier to track:
 
 {% highlight js %}
 TypeError: 'undefined' is not a function (near '...}.bind(this),...')
-    at FooController (http://127.0.0.1:59323/assets/angular/trolley/trolley_controller.js?body=1:72)
+    at TrolleyController (http://127.0.0.1:59323/assets/angular/trolley/trolley_controller.js?body=1:72)
 {% endhighlight %}
 
 Happy debugging!
