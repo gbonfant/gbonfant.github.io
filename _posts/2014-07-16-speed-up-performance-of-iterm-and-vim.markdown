@@ -6,7 +6,9 @@ category: blog
 description: "Improving the performance of iTerm2 and Vim in Mac OS X."
 ---
 
-I've been a happy user of iTerm2 for a few years, however after moving my entire workflow over to the terminal I experienced a noticeable drop in the responsiveness of my terminal. Initially I blamed zsh, and particularly [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), and thus I switched to [fish](http://fishshell.com) and never looked back – My shell was definitely faster, and I even became more productive. However, fish didn't solve my main issue, iTerm2 startup times were slow and Vim jerkiness continued. After researching and trying several things I managed to speed up my terminal and tamed Vim's unresponsiveness, here's how I did it.
+I've been a happy user of iTerm2 for a few years, however after moving my entire workflow over to the terminal I experienced a noticeable drop in the responsiveness of my terminal.
+
+Initially I blamed zsh, and particularly [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), and thus I switched to [fish](http://fishshell.com) and never looked back – My shell was definitely faster, and I even became more productive. However, fish didn't solve my main issue, iTerm2 startup times were slow and Vim jerkiness continued. After researching and trying several things I managed to speed up my terminal and tamed Vim's unresponsiveness, here's how I did it.
 
 
 ### Fast terminal startup time

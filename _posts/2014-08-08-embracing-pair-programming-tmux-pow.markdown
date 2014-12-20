@@ -6,7 +6,7 @@ category: blog
 description: "How I use tmux for remote pair programming efficiency and happiness."
 ---
 
-Many articles and books have been written about the benefits of pair programming, on that same line many companies are realising that is easier to hire from a worldwide pool of talent rather than, a sometimes limited, regional pool. If nothing else, allowing your employees to work from home when they need it keeps them motivated and productive.
+Allowing your employees to work from home when they need it keeps them motivated and productive.
 
 But, even when working in an office I've found pair programming on separate computers more productive. After all, everyone has their own configuration, bindings, preferred font family, and size, preferred color scheme, their own keyboard layout... So why force ourselves into one screen, one configuration, one "fits it all" environment.
 
