@@ -1,14 +1,12 @@
 ---
-# Let's add a comment to make this file sass-y.
-# Change this file for any custom CSS.
+# this ensures Jekyll reads the file to be transformed into CSS later
+# only Main files contain this front matter, not partials.
 ---
+@import "fonts";
+@import "syntax";
+@import "base";
 
-/* We need to add display:inline in order to align the '>>' of the 'read more' link */
 .post-excerpt p {
-	display:inline;
+  display:inline;
 }
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-	"syntax"
-;
