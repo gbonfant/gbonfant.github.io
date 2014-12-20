@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Multi-line abbreviations in Vim"
 date: 2014-08-18 16:58:55 +0200
 category: blog

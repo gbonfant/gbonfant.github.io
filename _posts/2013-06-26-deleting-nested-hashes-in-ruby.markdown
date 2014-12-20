@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Deleting nested hashes in Ruby"
 date: 2013-06-26 20:16:31 +0200
 category: blog

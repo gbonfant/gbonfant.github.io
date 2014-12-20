@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Speed up performance of iTerm and Vim"
 date: 2014-07-16 15:06:30 +0200
 category: blog

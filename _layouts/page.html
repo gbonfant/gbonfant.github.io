@@ -1,35 +1,28 @@
-{% if page.image.feature %}
+---
+layout: default
+post_class: post-template page-template
+---
 
-{% include head.html %}
+<nav class="main-nav clearfix">
+  <a class="back-button icon-arrow-left" href="{{ site.baseurl }}">Home</a>
+  <a class="subscribe-button icon-feed" href="{{ site.baseurl }}rss.xml">Subscribe</a>
+</nav>
 
-<section class="article">
 
-  <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})"></div>
-{% else %}
+<main class="content" role="main">
+  <article class="post">
+    <!-- <header class="post-header">
+      <a id="blog-logo" href="{{site.baseurl}}">
+      {% if site.logo %}
+      <img src="{{site.logo}}" alt="{{ site.name }}" />
+      {% else %}
+      <span class="blog-title">{{ site.name }}</span>
+      {%endif%}
+      </a>
+      </header> -->
 
-{% include head-dark.html %}
+    <h1 class="post-title">{{ page.title }}</h1>
 
-<section class="article pad-top">
-
-{% endif %}
-
-      <article class="wrap post">
-        <header class="post-header">
-          <hgroup>
-            <h1>{{ page.title }}</h1>
-            <p class="intro">{% if page.description %}{{ page.description }}{% else %}{{ page.tagline }}{% endif %}</p>
-
-          </hgroup>
-        </header>
-
-        {{ content }}
-
-      <a class="share" href="https://twitter.com/intent/tweet?text=&quot;{{ page.title }}&quot;%20{{ site.canonical }}{{ page.url }}%20via%20&#64;{{ site.owner.twitter }}" data-dnt="true">Share</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-      </article>
-    </section>
-</div>
-
-{% include footer.html %}
+    <section class="post-content">{{content}}</section>
+  </article>
+</main>

@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Docker in OS X with fish"
 date: 2014-08-06 21:01:29 +0200
 category: blog

@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Responding to scope changes with controller as syntax"
 date: 2014-07-11 14:51:50 +0200
 category: blog
