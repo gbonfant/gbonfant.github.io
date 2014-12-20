@@ -1,12 +1,6 @@
 ---
-layout: post
-permalink: /about/index.html
-title: About the author
-description: Software engineering, design, and curiosity.
-image:
-  feature: soft-trees.jpg
+layout: page
+title: About me 
 ---
 
-Gus Bonfant is a Software Engineer with an interest in design, psychology and human-computer interaction. He spends too much time acquiring esoteric knowledge and pondering about mundane things. He believes in fully dedicated oneself in order to achieve any level of success.
-
-His most recent experiment includes describing himself in third person.
+This is a static page. It could be an 'about page' if you'd like.

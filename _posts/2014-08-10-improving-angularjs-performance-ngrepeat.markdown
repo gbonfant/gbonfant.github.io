@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Improving AngularJS performance: ngRepeat"
 date: 2014-08-10 09:28:31 +0200
 category: blog
@@ -20,17 +20,17 @@ I have created a [fiddle](http://jsfiddle.net/gbonfant/Mrn66/6/) to showcase thi
 
 In the first scenario I simply create a collection with 300 objects and rebuild it every time a button is clicked.
 
-![ngRepeat without track by - memory usage graph](/images/ngRepeat-memory.jpg)
+![ngRepeat without track by - memory usage graph](/assets/images/ngRepeat-memory.jpg)
 
-![ngRepeat without track by - stack chart](/images/ngRepeat-stack.jpg)
+![ngRepeat without track by - stack chart](/assets/images/ngRepeat-stack.jpg)
 
 By inspecting the graph is evident that more and more nodes are created, also every operation takes approximately _100~200ms_.
 
 On the other hand, by providing a unique, immutable id to the ngRepeat directive the node count does not increase and every rebuild operation takes only _~6ms_.
 
-![ngRepeat with track by - memory usage graph](/images/ngRepeat-memory-trackby.jpg)
+![ngRepeat with track by - memory usage graph](/assets/images/ngRepeat-memory-trackby.jpg)
 
-![ngRepeat with track by - stack chart](/images/ngRepeat-stack-trackby.jpg)
+![ngRepeat with track by - stack chart](/assets/images/ngRepeat-stack-trackby.jpg)
 
 ### Conclusion
 

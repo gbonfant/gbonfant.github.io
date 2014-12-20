@@ -1,12 +1,14 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Better JavaScript errors in Capybara tests"
 date: 2014-12-17 13:58:00 +0000
 category: blog
 description: "How to fix debugging errors for JavaScript in Capybara tests"
 ---
 
-In a recent project I found myself with a failing integration test for a part of the application in where a JavaScript MVC framework was being used. The output wasn't particularly helpful:
+In a recent project I found myself with a failing integration test for a part of the application in where a JavaScript MVC framework was being used.
+
+The output wasn't particularly helpful:
 
 {% highlight js %}
 TypeError: 'undefined' is not a function (near '...}.bind(this),...')

@@ -1,14 +1,12 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Tips for improving vim rendering"
 date: 2014-12-17 13:58:00 +0000
-category: blog
 description: "Tips for improving vim's rendering"
+category: blog
 ---
 
 A few months ago I [wrote](http://www.gbonfant.com/blog/speed-up-performance-of-iterm-and-vim/) about maximising Vim performance, particularly along iTerm2. I want to expand on that topic by sharing a few tips that might improve your editor's rendering.
-
-### Cheap gains
 
 {% highlight vim %}
 set ttyfast
@@ -47,7 +45,5 @@ set norelativenumber
 {% endhighlight %}
 
 If you are a fan of relative line numbers you'd be bummed to know that this also slows down redrawing.
-
-### Clean up unused plugins
 
 Perhaps a no-brainer but it's worth mentioning. Getting rid of that plugin you once installed and never used, or learning the native vim implementation of a particular action instead of relying on an external plugin could shave off a few milliseconds worth of performance.

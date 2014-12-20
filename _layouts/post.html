@@ -1,30 +1,92 @@
-{% include head.html %}
+---
+layout: default
+disqus: false
+archive: false
+post_class: post-template
+---
 
-<section class="article">
+<header class="main-header post-head {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
+  <nav class="main-nav {% if page.cover %} overlay {% endif %} clearfix">
+    <a class="back-button icon-arrow-left" href="{{ site.baseurl }}">Home</a>
+    <a class="subscribe-button icon-feed" href="{{ site.baseurl }}rss.xml">Subscribe</a>
+  </nav>
+</header>
 
-{% if page.image.feature %}
-  <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})"></div>
-{% else %}
-  <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url({{ site.url }}/images/typewriter.jpg)"></div>
-{% endif %}
+<main class="content" role="main">
 
-      <article class="wrap post">
-        <header class="post-header">
-          <hgroup>
-            <h1>{{page.title}}</h1>
-            <p class="intro about-description">{% if page.description %}{{ page.description }}{% else %}{{ page.tagline }}{% endif %}</p>
-          </hgroup>
-        </header>
+<article class="post">
 
-        <div class="about-content">
-          {{ content }}
-        </div>
-
-      </article>
-
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <section class="post-meta">
+      <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
+      {% if page.categories.size > 0 %}
+      {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
+      {% endif %}
     </section>
-</div>
+  </header>
 
-{% include footer.html %}
+  <!--         <header class="post-header">
+    <a id="blog-logo" href="{{site.url}}">
+    {% if site.logo %}
+    <img src="{{site.logo}}" alt="{{ site.name }}" />
+    {% else %}
+    <span class="blog-title">{{ site.name }}</span>
+    {%endif%}
+    </a>
+    </header> -->
+
+    <!-- <span class="post-meta">
+      <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
+      {% if page.categories.size > 0 %}
+      {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
+      {% endif %}
+      </span> -->
+
+      <!-- <h1 class="post-title">{{ page.title }}</h1> -->
+
+      <section class="post-content">
+        {{content}}
+      </section>
+
+      {% if page.archive %}
+      <section class="archive">
+        <h5>Archive</h5>
+        <ul>
+          {% for post in site.posts %}
+          <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      <footer class="post-footer">
+        <!-- If we want to display author's name and bio -->
+        {% if site.author %}
+        <figure class="author-image">
+          <a class="img" href="{{ site.baseurl }}" style="background-image: url(/assets/images/profile.png)">
+            <span class="hidden">{{site.author}}'s Picture</span></a>
+        </figure>
+        <section class="author">
+          <!-- Author Name -->
+          <h4> {{ site.author }} </h4>
+          <!-- Author Bio -->
+          <p>
+          Programmer, foodie, diver. Designer wannabe. You can <a href="http://twitter.com/gbonfant">follow me on twitter if you'd like</a>.
+          </p>
+        </section>
+        {% endif %}
+
+        <!-- Share links section -->
+        {% include share.html %}
+
+        <!-- Disqus comments -->
+        {% if page.disqus %}
+        {% include disqus.html %}
+        {% endif %}
+
+      </footer>
+
+</article>
+
+</main>

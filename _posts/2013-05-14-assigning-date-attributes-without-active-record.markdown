@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Assigning date attributes without ActiveRecord"
 date: 2013-05-14 16:13:26 +0200
 category: blog

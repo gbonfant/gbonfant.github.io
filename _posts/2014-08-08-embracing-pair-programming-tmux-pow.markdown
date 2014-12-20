@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Embracing (remote) pair programming with tmux and pow!"
 date: 2014-08-08 19:24:31 +0200
 category: blog
@@ -12,7 +12,7 @@ But, even when working in an office I've found pair programming on separate comp
 
 ### Enter tmux
 
-I'll spare you the explanation of what tmux is[^1], instead I'll recommend you to go and install it. As much as I read about tmux it wasn't until I started using it that I saw its benefits, and by now every time I'm working I'm attached to a particular session[^2]. However, for this particular setup you don't have to be a tmux expert, in fact the simpler you keep it the easier it'll be for your pair to understand and set things up.
+I'll spare you the explanation of what tmux is, instead I'll recommend you to go and install it. As much as I read about tmux it wasn't until I started using it that I saw its benefits, and by now every time I'm working I'm attached to a particular session. However, for this particular setup you don't have to be a tmux expert, in fact the simpler you keep it the easier it'll be for your pair to understand and set things up.
 
 ### Bootstrapping the environment
 
@@ -75,6 +75,3 @@ Tailing logs and restarting the server can be done just as you would on a remote
 
 ### Wrap up
 Somebody said the first rule of pair programming is making your pair happy, this is easier said than done. Developers are picky, so by allowing my pair and I to work with our preferred settings and in our most familiar environment, achieving that happiness becomes easier.
-
-[^1]: The guys over at Thoughtbot have an [excellent introductory article](http://robots.thoughtbot.com/a-tmux-crash-course) on tmux.
-[^2]: By using something like Nitrous.io you can have a running tmux session [always available](http://blog.nitrous.io/2013/08/05/nitrous-stories-i-yehuda-katz-tilde-nitrousio.html) from any machine, anywhere in the world as long as you have a recent browser and an internet connection.

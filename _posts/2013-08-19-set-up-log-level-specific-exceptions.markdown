@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Logging specific exceptions"
 date: 2013-08-19 21:08:49 +0200
 category: blog

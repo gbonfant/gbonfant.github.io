@@ -1,5 +1,5 @@
 ---
-layout: post-no-feature
+layout: post
 title: "Execute a function on ngRepeat done"
 date: 2013-08-25 21:58:05 +0200
 category: blog
