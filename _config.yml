@@ -8,6 +8,7 @@ logo: false
 paginate: 10
 baseurl: /
 domain_name: 'http://gbonfant.com'
+permalink: blog/:title
 
 # Details for the RSS feed generator
 url: 'http://gbonfant.com'
