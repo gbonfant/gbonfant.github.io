@@ -13,9 +13,9 @@ specially when the needs of its developers are vastly different
 and no consensus is achieved.
 And although there's no official way of conditionally adding gems to Bundler
 a `Gemfile` is nothing more than a ruby file,
-hence arbitrary ruby code can be executed freely.
+hence ruby code can be executed freely.
 
-The problem with RubyGem is that `require`ing pry or any of its cousins
+The problem with RubyMine is that `require`ing pry or any of its cousins
 causes the IDE to blow up.
 
 With these two pieces of information we can update the `Gemfile`
