@@ -8,6 +8,6 @@ twitter_username: gbonfant
 github_username:  gbonfant
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet #kramdown
 sass:
   style: :compressed
