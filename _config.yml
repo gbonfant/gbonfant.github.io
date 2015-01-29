@@ -1,12 +1,13 @@
 # Site settings
 title: Gus Bonfante
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
+description: >
   Gus Bonfante. Software Engineer, foodie, diver and design enthusiast.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://gbonfant.com" # the base hostname & protocol for your site
+baseurl: ""
+url: "http://gbonfant.com"
 twitter_username: gbonfant
 github_username:  gbonfant
 
 # Build settings
 markdown: kramdown
+sass:
+  style: :compressed
