@@ -172,10 +172,6 @@
 .post-list {
     margin-left: 0;
     list-style: none;
-
-    // > li {
-    //     margin-bottom: $spacing-unit;
-    // }
 }
 
 .post-meta {
@@ -194,7 +190,8 @@
  * Posts
  */
 .post-header {
-    margin-bottom: $spacing-unit;
+  text-align: center;
+  margin: 2em 0 4em;
 }
 
 .post-title {
@@ -208,7 +205,14 @@
 }
 
 .post-content {
+    font-family: 'Cardo';
+    font-size: 1.125em;
+    line-height: 1.8em;
     margin-bottom: $spacing-unit;
+
+    p {
+      margin: 1em 0;
+    }
 
     h2 {
         font-size: 32px;
