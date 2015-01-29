@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About me 
+title: About
+permalink: /about/
 ---
 
-This is a static page. It could be an 'about page' if you'd like.
+I am a web developer who enjoys building customer-facing experiences, as well as the services that power them. I love shipping useful and meaningful products while striving for clean, pragmatic, and maintainable code.

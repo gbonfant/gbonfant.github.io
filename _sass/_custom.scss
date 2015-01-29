@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Cardo';
+  src: url('/assets/fonts/Cardo-Regular.ttf');
+}
+
+.home {
+  padding-top: 3em;
+}
+
+.post-list-item {
+  margin-bottom: 1.5em;
+  font-family: 'Cardo';
+}
+
+.post-list-item span {
+  font-size: 1em;
+  width: 25%;
+  display: block;
+  float: left;
+  color: #747474;
+}
+
+.post-list-item a {
+  font-size: 1.2em;
+  color: #111;
+  display: block;
+}

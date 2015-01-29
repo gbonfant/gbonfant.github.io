@@ -1,18 +1,13 @@
-name: Gus Bonfant
-description: Software Engineer
-meta_description: "I'm Gus Bonfant: A programmer, foodie, diver, and design enthusiast."
+# Site settings
+title: Gus Bonfante
+description: >
+  Gus Bonfante. Software Engineer, foodie, diver and design enthusiast.
+baseurl: ""
+url: "http://gbonfant.com"
+twitter_username: gbonfant
+github_username:  gbonfant
 
+# Build settings
 markdown: redcarpet
-highlighter: pygments
-logo: false
-paginate: 10
-baseurl: /
-domain_name: 'http://gbonfant.com'
-permalink: blog/:title
-
-# Details for the RSS feed generator
-url: 'http://gbonfant.com'
-author: 'Gus Bonfant'
-
 sass:
   style: :compressed
