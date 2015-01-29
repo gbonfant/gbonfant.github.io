@@ -6,6 +6,7 @@ baseurl: ""
 url: "http://gbonfant.com"
 twitter_username: gbonfant
 github_username:  gbonfant
+permalink: blog/:title
 
 # Build settings
 markdown: redcarpet
