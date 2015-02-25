@@ -6,7 +6,7 @@ description: "Build SEO friendly rails urls"
 category: blog
 ---
 
-Considering the URL structure of your site is a very important step towards building applications that are discoverable, and that perform in organic search results. This is particularly important if you are building e-commerce or content applications, where you need consistent, user-friendly, URLs.
+Considering the URL structure of your site is a very important step towards building applications that are discoverable, and that perform in organic search results. This is particularly important if you are building e-commerce or content applications, where you need consistent, user-friendly URLs.
 
 By default a restful resource in Rails looks something like this:
 
@@ -16,7 +16,7 @@ def show
 end
 {% endhighlight %}
 
-The problem with this approach is that it generates sitemaps that looks like so:
+The problem with this approach is that it generates a sitemap that looks like so:
 
 ```
 mysite.com/products/1
@@ -24,7 +24,7 @@ mysite.com/products/245
 mysite.com/products/864
 ```
 
-Although there are a variety of approaches to solve this problem I'd like to show you an implementation that is easy to maintain and develop. Simply override `to_param`
+Although there are a variety of approaches to solve this problem I'd like to show you an implementation that is easy to maintain and develop: overriding `to_param`
 
 {% highlight ruby %}
 class Product < ActiveRecord::Base
@@ -49,4 +49,4 @@ mysite.com/products/864-beach-ball
 
 Secondly, Action Pack, which handles view layers, calls [ActiveRecord::Integration#to_param](http://api.rubyonrails.org/classes/ActiveRecord/Integration.html#method-i-to_param) for constructing URLs, this happens behind the scenes any time `link_to` and similar are used in the views.
 
-Finally [ActiveRecord::FinderMethods#find](http://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html#method-i-find) has an interesting side-effect: if the argument given is a string it'll coerce the value with [String#to_i](http://ruby-doc.org//core-2.2.0/String.html#method-i-to_i), essentially ignoring anything that doesn't look like a number, and returning an integer.
+Finally [ActiveRecord::FinderMethods#find](http://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html#method-i-find) has an interesting side-effect: if the argument given is a string it will coerce the value with [String#to_i](http://ruby-doc.org//core-2.2.0/String.html#method-i-to_i), essentially ignoring anything that doesn't look like a number, and returning an integer.
