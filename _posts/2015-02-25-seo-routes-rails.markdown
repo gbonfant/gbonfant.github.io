@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SEO friendly routes in Rails"
-date: 2015-02-24 16:17:00 +0000
+date: 2015-02-25 12:20:00 +0000
 description: "Build SEO friendly rails urls"
 category: blog
 ---
