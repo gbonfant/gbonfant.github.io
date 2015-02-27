@@ -23,7 +23,7 @@ sudo rm /var/log/asl/*.asl
 
 Secondly, explicitly invoking the preferred shell instead of relying on what is set as login shell also helped with startup times, for iTerm2 this can be done under Profiles > General > Command, you'll want to input the path for your shell in here, for me that is ``/usr/local/bin/fish -l``.
 
-![Configuration window for iterm@](/images/speed-up-iterm.png)
+![Configuration window for iterm@](/assets/images/speed-up-iterm.png)
 
 ### Buttery smooth Vim rendering
 MacVim's rendering engine is much snappier than Vim's so using mvim instead will greatly improve rendering performance. There is no reason to give up vim in the terminal however, MacVim comes with a CLI mode which can be swapped for the default vim binary via aliases.
