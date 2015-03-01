@@ -25,6 +25,12 @@
   color: #747474;
 }
 
+@media screen and (max-width:767px) {
+  .post-list-item span {
+    display: none;
+  }
+}
+
 .post-list-item a {
   font-size: 1.2em;
   color: #111;
