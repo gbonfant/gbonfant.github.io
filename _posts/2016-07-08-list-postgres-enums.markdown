@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "List all defined ENUM in Postgres"
-date: 2016-07-08 11:00:00 +0000
+date: 2016-07-08
 description: "List all defined ENUM in Postgres"
 category: blog
 ---
