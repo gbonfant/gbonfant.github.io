@@ -16,8 +16,8 @@ Ngrok is a superpowered pow that works with any application and it comes with al
 
 Ngrok is super simple to setup, if you are on a mac simply run
 
-{% highlight bash %}
+~~~ bash
 $ brew install ngrok
-{% endhighlight %}
+~~~
 
 Otherwise [download](https://ngrok.com/download) the single binary from their site.

@@ -14,7 +14,7 @@ However, if you are building Rails applications without ActiveRecord you might f
 
 Assuming the following class:
 
-{% highlight rb linenos %}
+~~~ ruby
 class Person < BaseModel
   # For the sake of simplicity, BaseModel will add all the boilerplate
   # needed for making our class behave like an AR model class.
@@ -24,24 +24,24 @@ class Person < BaseModel
     super
   end
 end
-{% endhighlight %}
+~~~
 
 When submitting a form with the following parameters, ``name`` will be automatically assigned but ``birth_date`` won't.
 
-{% highlight js %}
+~~~ js
 {
   "name": "James Bond",
   "birth_date(3i)": "11",
   "birth_date(2i)": "11",
   "birth_date(1i)": "1920"
 }
-{% endhighlight %}
+~~~
 
 The reason is simple, neither of the remaining parameters are attributes of our class. On ActiveRecord land, however, the remaining parameters will magically be assigned to our class attribute due to ``assign_attribute`` method call, which automatically assigns multi parameter attributes. This works by iterating over the passed attributes, selecting those that are of the type multi parameter, extract their values and assign them to a new hash which will ultimately be assigned to the parent class.
 
 By poking into ActiveRecord's internals we can extract this logic into our own method:
 
-{% highlight rb linenos %}
+~~~ ruby
 class Person < BaseModel
   attr_accessor :name, :birth_date
 
@@ -94,7 +94,7 @@ class Person < BaseModel
     multiparameter_name.scan(/\(([0-9]*).*\)/).first.first.to_i
   end
 end
-{% endhighlight %}
+~~~
 
 Diving into ActiveRecord's source is a rewarding exercise that greatly helps to understand the "magic" behind Rails nifty features.
 

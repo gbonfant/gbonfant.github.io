@@ -15,7 +15,7 @@ In the case of Rails, 404 errors are logged as fatal, meaning that most notifica
 [ActionDispatch::DebugExceptions](http://api.rubyonrails.org/classes/ActionDispatch/DebugExceptions.html) is a simple piece of middleware in charge of logging exceptions, by taking a look at ``log_error`` it becomes clear what's the behaviour that needs to be changed.
 
 
-{% highlight rb linenos %}
+~~~ ruby
 def log_error(env, wrapper)
   logger = logger(env)
 
@@ -31,11 +31,11 @@ def log_error(env, wrapper)
     logger.fatal("#{message}\n\n")
   end
 end
-{% endhighlight %}
+~~~
 
 The following piece of code will simply ignore any 404 exceptions. That might be enough for simple applications, but in most cases keeping track of how many error pages were rendered will help you spot health issues with your application and further improve the experience of it.
 
-{% highlight rb linenos %}
+~~~ ruby
 class ActionDispatch::DebugExceptions
   def log_error(env, wrapper)
     return if wrapper.exception.is_a? ActionController::RoutingError
@@ -43,11 +43,11 @@ class ActionDispatch::DebugExceptions
     super
   end
 end
-{% endhighlight %}
+~~~
 
 Instead, let's add some conditional that logs 404s as warning instead.
 
-{% highlight rb linenos %}
+~~~ ruby
 def log_error(env, wrapper)
   # ...
   if exception.is_a? ActionController::RoutingError
@@ -55,4 +55,4 @@ def log_error(env, wrapper)
   else
     logger.fatal("#{message}\n\n")
  end
-{% endhighlight %}
+~~~

@@ -22,7 +22,7 @@ With these two pieces of information we can update the `Gemfile`
 to avoid requiring pry for RubyMine users:
 
 
-{% highlight ruby %}
+~~~ ruby
 if ENV["USE_DEBUGGER"]
   gem "pry-byebug"
   gem "byebug"
@@ -32,7 +32,7 @@ else
   gem "byebug", require: false
   # ...
 end
-{% endhighlight %}
+~~~
 
 This can obviously become kind of cumbersome
 if there are many gems that need to be added conditionally

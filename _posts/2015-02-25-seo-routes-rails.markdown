@@ -10,11 +10,11 @@ Considering the URL structure of your site is a very important step towards buil
 
 By default a restful resource in Rails looks something like this:
 
-{% highlight ruby %}
+~~~ ruby
 def show
   @products = Product.find(params[:id])
 end
-{% endhighlight %}
+~~~
 
 The problem with this approach is that it generates a sitemap that looks like so:
 
@@ -26,13 +26,13 @@ mysite.com/products/864
 
 Although there are a variety of approaches to solve this problem I'd like to show you an implementation that is easy to maintain and develop: overriding `to_param`
 
-{% highlight ruby %}
+~~~ ruby
 class Product < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end
 end
-{% endhighlight %}
+~~~
 
 Your sitemap should start looking like below, and no other changes are needed.
 

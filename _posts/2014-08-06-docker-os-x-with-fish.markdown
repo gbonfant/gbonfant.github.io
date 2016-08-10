@@ -13,35 +13,35 @@ Docker is intended to be ran in Linux environments, but thanks to [Boot2Docker](
 ### Installation
 By using homebrew, boot2docker installation is as easy as it gets.
 
-{% highlight bash %}
+~~~ bash
 $ brew install boot2docker
-{% endhighlight %}
+~~~
 
 With a single command we get both boot2docker and Docker itself.
 
 ### Configuration
 On POSIX shells like bash or zsh boot2docker should work out of the box. With fish however, there is an extra step that needs to be done, that is setting the ``DOCKER_HOST`` environment variable needed for our docker client to connect to the virtual machine.
 
-{% highlight bash %}
+~~~ bash
 # $HOME/.config/fish/config.fish
 set -x DOCKER_HOST "tcp://192.168.59.103:2375"
-{% endhighlight %}
+~~~
 
 Afterwards, we need to download the Linux VM and mount it on VirtualBox, boot2docker takes care of this step with the following command:
 
-{% highlight bash %}
+~~~ bash
 $ boot2docker init
-{% endhighlight %}
+~~~
 
 Then simply start the VM with:
 
-{% highlight bash %}
+~~~ bash
 $ boot2docker up
-{% endhighlight %}
+~~~
 
 
 Finally, make sure everything is properly setup by running docker's example image:
 
-{% highlight bash %}
+~~~ bash
 $ docker run hello-world
-{% endhighlight %}
+~~~

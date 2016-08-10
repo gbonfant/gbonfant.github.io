@@ -10,9 +10,9 @@ Abbreviations are a pretty neat, and often ignored, feature of Vim. Similar to m
 
 For instance, _approachable_ is both a relatively long word and I mistype it 80% of the time. With abbreviations I can issue the following command:
 
-{% highlight vim %}
+~~~ vim
 :iabbrev aprch approachable
-{% endhighlight %}
+~~~
 
 Then, every time I type ``aprch`` and ``<SPACE>`` my typo will be replaced with the correct word. This is a pity example though, abbreviations can be extremely helpful for things like email addresses, end of letter sentences, salutations, etc.
 
@@ -20,21 +20,21 @@ However, in my case I use abbreviations as snippets for common programming defin
 
 For instance, by typing ``iif<SPACE>`` Vim will replace my text with:
 
-{% highlight js linenos %}
+~~~ javascript
 (function() {
   'use strict';
 
   // Cursor here, in Insert mode
 })();
-{% endhighlight %}
+~~~
 
 Such snippet-like functionality can be achieved by a simple combination of autocommand, key annotations, and abbreviations.
 
-{% highlight vim linenos %}
+~~~ vim
 autocmd FileType javascript :iabbrev <buffer> iif (function() {
       \<CR>'use strict';
       \<CR>
       \<CR>})();<ESC><s-O>
-{% endhighlight %}
+~~~
 
 The above script will replace _iif_ with the function declaration in the current buffer, and only for javascript files. No external plugins needed!

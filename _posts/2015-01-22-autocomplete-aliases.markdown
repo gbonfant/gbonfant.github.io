@@ -10,20 +10,20 @@ Back in August, proper autocompletion for aliases [was added](https://github.com
 At the moment of this writing there's no real UI for it yet,
 however you can already start using it by keeping up with the master branch.
 
-{% highlight bash %}
+~~~ bash
 $ brew update; and brew upgrade --HEAD fish
-{% endhighlight %}
+~~~
 
 You can now use the ``--wraps`` flag to
 recursively inherit the completions of a wrapped command.
 
 For instance:
 
-{% highlight bash %}
+~~~ bash
 function g --wraps git
   git $argv
 end
-{% endhighlight %}
+~~~
 
 Now doing something like ``g co <tab>`` will autocomplete the branch names:
 <img src="/assets/images/fish-autocomplete.png" alt="fish alias autocompletion" with=250 />

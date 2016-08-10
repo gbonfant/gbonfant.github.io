@@ -15,9 +15,9 @@ Initially I blamed zsh, and particularly [oh-my-zsh](https://github.com/robbyrus
 
 OS X keeps all kind of system logs under ``/var/log/asl``, after over five years of usage that's a lot of logs, specially if you've gone through several installations of major OS releases and have dealt with all kind of error messages. Cleaning these up definitely helped improving startup times for my terminal, so I'd recommend deleting them.
 
-{% highlight bash %}
+~~~ bash
 sudo rm /var/log/asl/*.asl
-{% endhighlight %}
+~~~
 
 *Don't delete all the files in the ``asl`` directory as it also contains other log files unrelated to the shell.*
 
@@ -28,7 +28,7 @@ Secondly, explicitly invoking the preferred shell instead of relying on what is 
 ### Buttery smooth Vim rendering
 MacVim's rendering engine is much snappier than Vim's so using mvim instead will greatly improve rendering performance. There is no reason to give up vim in the terminal however, MacVim comes with a CLI mode which can be swapped for the default vim binary via aliases.
 
-{% highlight bash %}
+~~~ bash
 # Install latest MacVim with lua support and cscope
 $ brew install macvim --with-cscope --with-lua --HEAD
 
@@ -36,7 +36,7 @@ $ brew install macvim --with-cscope --with-lua --HEAD
 function vim
   mvim -v $argv
 end
-{% endhighlight %}
+~~~
 
 ### Living on the edge
 Finally, if you are experiencing input lag or any other kind of rendering sluglishness in iTerm you may want to consider running on [nightly builds](http://www.iterm2.com/downloads.html), George Nachman has done an outstanding job improving the performance of the application in the latest releases.

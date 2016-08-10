@@ -10,7 +10,7 @@ ngRepeat is one of Angular's most powerful directives and in most cases "it just
 
 Thanks to Angular's [$destroy()](http://docs.angularjs.org/api/ng.$rootScope.Scope#$destroy) I can create a custom directive to accomplish this.
 
-{% highlight javascript linenos %}
+~~~ javascript
 myApp.directive('repeatDone', function() {
   return function(scope, element, attrs) {
     element.bind('$destroy', function(event) {
@@ -20,10 +20,10 @@ myApp.directive('repeatDone', function() {
     });
   };
 });
-{% endhighlight %}
+~~~
 
 By calling my new directive along with ``ng-repeat`` I can execute a function as soon as the iteration is finished.
 
-{% highlight html %}
+~~~ html
 <div ng-repeat="item in cart.items" repeat-done="foo()"></div>
-{% endhighlight %}
+~~~
